@@ -1,5 +1,6 @@
 solution "Decoda"
     configurations { "Debug", "Release" }
+	platforms { "x32", "x64" }
     location "build"
 	--debugdir "working"
 	flags { "No64BitChecks" }
@@ -11,6 +12,12 @@ solution "Decoda"
         ["Source Files"] = { "**.cpp" },
 		["Resource Files"] = { "**.rc" },
     }
+	
+	configuration "x32"
+		defines { "_X86_" }
+	
+	configuration "x64"
+		defines { "_X64_" }
 
 project "Frontend"
     kind "WindowedApp"
@@ -27,26 +34,20 @@ project "Frontend"
 		"src/Shared",
 		"libs/wxWidgets/include",
 		"libs/wxScintilla/include",
-		"libs/Update/include",
 	}
 	libdirs {
-		"libs/wxWidgets/lib/vc_lib",
-		"libs/wxScintilla/lib",
 		"libs/Update/lib",
 	}
     links {
 		"comctl32",
 		"rpcrt4",
 		"imagehlp",
-		"Update",
 		"Shared",		
 	}
 
     configuration "Debug"
         defines { "DEBUG" }
         flags { "Symbols" }
-        targetdir "bin/debug"
-		includedirs { "libs/wxWidgets/lib/vc_lib/mswd" }
 		links {
 			"wxbase28d",
 			"wxmsw28d_core",
@@ -65,8 +66,6 @@ project "Frontend"
     configuration "Release"
         defines { "NDEBUG" }
         flags { "Optimize" }
-        targetdir "bin/release"
-		includedirs { "libs/wxWidgets/lib/vc_lib/msw" }
 		links {
 			"wxbase28",
 			"wxmsw28_core",
@@ -80,7 +79,37 @@ project "Frontend"
 			"wxmsw28_richtext",
 			"wxmsw28_html",
 			"wxpng",
-		}		
+		}
+		
+	configuration { "x32" }
+		libdirs {
+			"libs/wxWidgets/lib/vc_lib/Win32",
+			"libs/wxScintilla/lib/Win32"
+		}
+		includedirs { "libs/Update/include" }
+		links { "Update" }
+		
+	configuration { "x64" }
+		libdirs {
+			"libs/wxWidgets/lib/vc_lib/x64",
+			"libs/wxScintilla/lib/x64"
+		}
+
+	configuration { "Debug", "x32" }
+		targetdir "bin/debug"
+		includedirs { "libs/wxWidgets/lib/vc_lib/Win32/mswd" }
+		
+	configuration { "Release", "x32" }
+		targetdir "bin/release"
+		includedirs { "libs/wxWidgets/lib/vc_lib/Win32/msw" }		
+		
+	configuration { "Debug", "x64" }
+		targetdir "bin/debug64"
+		includedirs { "libs/wxWidgets/lib/vc_lib/x64/mswd" }
+		
+	configuration { "Release", "x64" }
+		targetdir "bin/release64"
+		includedirs { "libs/wxWidgets/lib/vc_lib/x64/msw" }
 		
 project "LuaInject"
     kind "SharedLib"
@@ -109,14 +138,27 @@ project "LuaInject"
     configuration "Debug"
         defines { "DEBUG" }
         flags { "Symbols" }
-        targetdir "bin/debug"
-		links { "tinyxmld_STL" }
+        
 
     configuration "Release"
         defines { "NDEBUG" }
-        flags { "Optimize" }
-        targetdir "bin/release"				
+        flags { "Optimize" }       
+		
+	configuration { "Debug", "x32" }
+		targetdir "bin/debug"
+		links { "tinyxmld_STL" }
+		
+	configuration { "Release", "x32" }
+		targetdir "bin/release"
 		links { "tinyxml_STL" }
+		
+	configuration { "Debug", "x64" }
+		targetdir "bin/debug64"
+		links { "tinyxml64d_STL" }
+		
+	configuration { "Release", "x64" }
+		targetdir "bin/release64"
+		links { "tinyxml64_STL" }
 		
 project "Shared"
     kind "StaticLib"
@@ -136,10 +178,19 @@ project "Shared"
     configuration "Debug"
         defines { "DEBUG" }
         flags { "Symbols" }
-        targetdir "bin/debug"
 
     configuration "Release"
         defines { "NDEBUG" }
         flags { "Optimize" }
-        targetdir "bin/release"		
 		
+	configuration { "Debug", "x32" }
+		targetdir "bin/debug"
+		
+	configuration { "Release", "x32" }
+		targetdir "bin/release"
+		
+	configuration { "Debug", "x64" }
+		targetdir "bin/debug64"
+		
+	configuration { "Release", "x64" }
+		targetdir "bin/release64"

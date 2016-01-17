@@ -15,8 +15,8 @@
 	<Configurations>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory=".\..\..\lib\vc_lib"
-			IntermediateDirectory=".\vc_mswd\wxpng"
+			OutputDirectory=".\..\..\lib\vc_lib\$(PlatformName)"
+			IntermediateDirectory=".\vc_mswd\$(PlatformName)\wxpng"
 			ConfigurationType="4"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
 			UseOfMFC="0"
@@ -47,10 +47,10 @@
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
 				RuntimeTypeInfo="true"
-				PrecompiledHeaderFile=".\vc_mswd\wxpng/wx_wxpng.pch"
-				AssemblerListingLocation=".\vc_mswd\wxpng/"
-				ObjectFile=".\vc_mswd\wxpng/"
-				ProgramDataBaseFileName="..\..\lib\vc_lib\wxpngd.pdb"
+				PrecompiledHeaderFile=".\vc_mswd\$(PlatformName)\wxpng/wx_wxpng.pch"
+				AssemblerListingLocation=".\vc_mswd\$(PlatformName)\wxpng/"
+				ObjectFile=".\vc_mswd\$(PlatformName)\wxpng/"
+				ProgramDataBaseFileName="..\..\lib\vc_lib\$(PlatformName)\wxpngd.pdb"
 				SuppressStartupBanner="true"
 				DebugInformationFormat="3"
 			/>
@@ -66,7 +66,7 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="..\..\lib\vc_lib\wxpngd.lib"
+				OutputFile="..\..\lib\vc_lib\$(PlatformName)\wxpngd.lib"
 				SuppressStartupBanner="true"
 			/>
 			<Tool
@@ -78,7 +78,7 @@
 			<Tool
 				Name="VCBscMakeTool"
 				SuppressStartupBanner="true"
-				OutputFile=".\..\..\lib\vc_lib/wx_wxpng.bsc"
+				OutputFile=".\..\..\lib\vc_lib\$(PlatformName)/wx_wxpng.bsc"
 			/>
 			<Tool
 				Name="VCFxCopTool"
@@ -89,8 +89,8 @@
 		</Configuration>
 		<Configuration
 			Name="Universal Debug|Win32"
-			OutputDirectory=".\..\..\lib\vc_lib"
-			IntermediateDirectory=".\vc_mswunivd\wxpng"
+			OutputDirectory=".\..\..\lib\vc_lib\$(PlatformName)"
+			IntermediateDirectory=".\vc_mswunivd\$(PlatformName)\wxpng"
 			ConfigurationType="4"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
 			UseOfMFC="0"
@@ -121,10 +121,10 @@
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
 				RuntimeTypeInfo="true"
-				PrecompiledHeaderFile=".\vc_mswunivd\wxpng/wx_wxpng.pch"
-				AssemblerListingLocation=".\vc_mswunivd\wxpng/"
-				ObjectFile=".\vc_mswunivd\wxpng/"
-				ProgramDataBaseFileName="..\..\lib\vc_lib\wxpngd.pdb"
+				PrecompiledHeaderFile=".\vc_mswunivd\$(PlatformName)\wxpng/wx_wxpng.pch"
+				AssemblerListingLocation=".\vc_mswunivd\$(PlatformName)\wxpng/"
+				ObjectFile=".\vc_mswunivd\$(PlatformName)\wxpng/"
+				ProgramDataBaseFileName="..\..\lib\vc_lib\$(PlatformName)\wxpngd.pdb"
 				SuppressStartupBanner="true"
 				DebugInformationFormat="3"
 			/>
@@ -140,7 +140,7 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="..\..\lib\vc_lib\wxpngd.lib"
+				OutputFile="..\..\lib\vc_lib\$(PlatformName)\wxpngd.lib"
 				SuppressStartupBanner="true"
 			/>
 			<Tool
@@ -152,7 +152,7 @@
 			<Tool
 				Name="VCBscMakeTool"
 				SuppressStartupBanner="true"
-				OutputFile=".\..\..\lib\vc_lib/wx_wxpng.bsc"
+				OutputFile=".\..\..\lib\vc_lib\$(PlatformName)/wx_wxpng.bsc"
 			/>
 			<Tool
 				Name="VCFxCopTool"
@@ -163,8 +163,8 @@
 		</Configuration>
 		<Configuration
 			Name="Universal Unicode Release|Win32"
-			OutputDirectory=".\..\..\lib\vc_lib"
-			IntermediateDirectory=".\vc_mswunivu\wxpng"
+			OutputDirectory=".\..\..\lib\vc_lib\$(PlatformName)"
+			IntermediateDirectory=".\vc_mswunivu\$(PlatformName)\wxpng"
 			ConfigurationType="4"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
 			UseOfMFC="0"
@@ -196,10 +196,10 @@
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
 				RuntimeTypeInfo="true"
-				PrecompiledHeaderFile=".\vc_mswunivu\wxpng/wx_wxpng.pch"
-				AssemblerListingLocation=".\vc_mswunivu\wxpng/"
-				ObjectFile=".\vc_mswunivu\wxpng/"
-				ProgramDataBaseFileName="..\..\lib\vc_lib\wxpng.pdb"
+				PrecompiledHeaderFile=".\vc_mswunivu\$(PlatformName)\wxpng/wx_wxpng.pch"
+				AssemblerListingLocation=".\vc_mswunivu\$(PlatformName)\wxpng/"
+				ObjectFile=".\vc_mswunivu\$(PlatformName)\wxpng/"
+				ProgramDataBaseFileName="..\..\lib\vc_lib\$(PlatformName)\wxpng.pdb"
 				SuppressStartupBanner="true"
 			/>
 			<Tool
@@ -214,7 +214,7 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="..\..\lib\vc_lib\wxpng.lib"
+				OutputFile="..\..\lib\vc_lib\$(PlatformName)\wxpng.lib"
 				SuppressStartupBanner="true"
 			/>
 			<Tool
@@ -226,7 +226,7 @@
 			<Tool
 				Name="VCBscMakeTool"
 				SuppressStartupBanner="true"
-				OutputFile=".\..\..\lib\vc_lib/wx_wxpng.bsc"
+				OutputFile=".\..\..\lib\vc_lib\$(PlatformName)/wx_wxpng.bsc"
 			/>
 			<Tool
 				Name="VCFxCopTool"
@@ -237,8 +237,8 @@
 		</Configuration>
 		<Configuration
 			Name="DLL Release|Win32"
-			OutputDirectory=".\..\..\lib\vc_dll"
-			IntermediateDirectory=".\vc_mswdll\wxpng"
+			OutputDirectory=".\..\..\lib\vc_dll\$(PlatformName)"
+			IntermediateDirectory=".\vc_mswdll\$(PlatformName)\wxpng"
 			ConfigurationType="4"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
 			UseOfMFC="0"
@@ -270,10 +270,10 @@
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
 				RuntimeTypeInfo="true"
-				PrecompiledHeaderFile=".\vc_mswdll\wxpng/wx_wxpng.pch"
-				AssemblerListingLocation=".\vc_mswdll\wxpng/"
-				ObjectFile=".\vc_mswdll\wxpng/"
-				ProgramDataBaseFileName="..\..\lib\vc_dll\wxpng.pdb"
+				PrecompiledHeaderFile=".\vc_mswdll\$(PlatformName)\wxpng/wx_wxpng.pch"
+				AssemblerListingLocation=".\vc_mswdll\$(PlatformName)\wxpng/"
+				ObjectFile=".\vc_mswdll\$(PlatformName)\wxpng/"
+				ProgramDataBaseFileName="..\..\lib\vc_dll\$(PlatformName)\wxpng.pdb"
 				SuppressStartupBanner="true"
 			/>
 			<Tool
@@ -288,7 +288,7 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="..\..\lib\vc_dll\wxpng.lib"
+				OutputFile="..\..\lib\vc_dll\$(PlatformName)\wxpng.lib"
 				SuppressStartupBanner="true"
 			/>
 			<Tool
@@ -300,7 +300,7 @@
 			<Tool
 				Name="VCBscMakeTool"
 				SuppressStartupBanner="true"
-				OutputFile=".\..\..\lib\vc_dll/wx_wxpng.bsc"
+				OutputFile=".\..\..\lib\vc_dll\$(PlatformName)/wx_wxpng.bsc"
 			/>
 			<Tool
 				Name="VCFxCopTool"
@@ -311,8 +311,8 @@
 		</Configuration>
 		<Configuration
 			Name="DLL Unicode Release|Win32"
-			OutputDirectory=".\..\..\lib\vc_dll"
-			IntermediateDirectory=".\vc_mswudll\wxpng"
+			OutputDirectory=".\..\..\lib\vc_dll\$(PlatformName)"
+			IntermediateDirectory=".\vc_mswudll\$(PlatformName)\wxpng"
 			ConfigurationType="4"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
 			UseOfMFC="0"
@@ -344,10 +344,10 @@
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
 				RuntimeTypeInfo="true"
-				PrecompiledHeaderFile=".\vc_mswudll\wxpng/wx_wxpng.pch"
-				AssemblerListingLocation=".\vc_mswudll\wxpng/"
-				ObjectFile=".\vc_mswudll\wxpng/"
-				ProgramDataBaseFileName="..\..\lib\vc_dll\wxpng.pdb"
+				PrecompiledHeaderFile=".\vc_mswudll\$(PlatformName)\wxpng/wx_wxpng.pch"
+				AssemblerListingLocation=".\vc_mswudll\$(PlatformName)\wxpng/"
+				ObjectFile=".\vc_mswudll\$(PlatformName)\wxpng/"
+				ProgramDataBaseFileName="..\..\lib\vc_dll\$(PlatformName)\wxpng.pdb"
 				SuppressStartupBanner="true"
 			/>
 			<Tool
@@ -362,7 +362,7 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="..\..\lib\vc_dll\wxpng.lib"
+				OutputFile="..\..\lib\vc_dll\$(PlatformName)\wxpng.lib"
 				SuppressStartupBanner="true"
 			/>
 			<Tool
@@ -374,7 +374,7 @@
 			<Tool
 				Name="VCBscMakeTool"
 				SuppressStartupBanner="true"
-				OutputFile=".\..\..\lib\vc_dll/wx_wxpng.bsc"
+				OutputFile=".\..\..\lib\vc_dll\$(PlatformName)/wx_wxpng.bsc"
 			/>
 			<Tool
 				Name="VCFxCopTool"
@@ -385,8 +385,8 @@
 		</Configuration>
 		<Configuration
 			Name="DLL Universal Release|Win32"
-			OutputDirectory=".\..\..\lib\vc_dll"
-			IntermediateDirectory=".\vc_mswunivdll\wxpng"
+			OutputDirectory=".\..\..\lib\vc_dll\$(PlatformName)"
+			IntermediateDirectory=".\vc_mswunivdll\$(PlatformName)\wxpng"
 			ConfigurationType="4"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
 			UseOfMFC="0"
@@ -418,10 +418,10 @@
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
 				RuntimeTypeInfo="true"
-				PrecompiledHeaderFile=".\vc_mswunivdll\wxpng/wx_wxpng.pch"
-				AssemblerListingLocation=".\vc_mswunivdll\wxpng/"
-				ObjectFile=".\vc_mswunivdll\wxpng/"
-				ProgramDataBaseFileName="..\..\lib\vc_dll\wxpng.pdb"
+				PrecompiledHeaderFile=".\vc_mswunivdll\$(PlatformName)\wxpng/wx_wxpng.pch"
+				AssemblerListingLocation=".\vc_mswunivdll\$(PlatformName)\wxpng/"
+				ObjectFile=".\vc_mswunivdll\$(PlatformName)\wxpng/"
+				ProgramDataBaseFileName="..\..\lib\vc_dll\$(PlatformName)\wxpng.pdb"
 				SuppressStartupBanner="true"
 			/>
 			<Tool
@@ -436,7 +436,7 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="..\..\lib\vc_dll\wxpng.lib"
+				OutputFile="..\..\lib\vc_dll\$(PlatformName)\wxpng.lib"
 				SuppressStartupBanner="true"
 			/>
 			<Tool
@@ -448,7 +448,7 @@
 			<Tool
 				Name="VCBscMakeTool"
 				SuppressStartupBanner="true"
-				OutputFile=".\..\..\lib\vc_dll/wx_wxpng.bsc"
+				OutputFile=".\..\..\lib\vc_dll\$(PlatformName)/wx_wxpng.bsc"
 			/>
 			<Tool
 				Name="VCFxCopTool"
@@ -459,8 +459,8 @@
 		</Configuration>
 		<Configuration
 			Name="Unicode Debug|Win32"
-			OutputDirectory=".\..\..\lib\vc_lib"
-			IntermediateDirectory=".\vc_mswud\wxpng"
+			OutputDirectory=".\..\..\lib\vc_lib\$(PlatformName)"
+			IntermediateDirectory=".\vc_mswud\$(PlatformName)\wxpng"
 			ConfigurationType="4"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
 			UseOfMFC="0"
@@ -491,10 +491,10 @@
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
 				RuntimeTypeInfo="true"
-				PrecompiledHeaderFile=".\vc_mswud\wxpng/wx_wxpng.pch"
-				AssemblerListingLocation=".\vc_mswud\wxpng/"
-				ObjectFile=".\vc_mswud\wxpng/"
-				ProgramDataBaseFileName="..\..\lib\vc_lib\wxpngd.pdb"
+				PrecompiledHeaderFile=".\vc_mswud\$(PlatformName)\wxpng/wx_wxpng.pch"
+				AssemblerListingLocation=".\vc_mswud\$(PlatformName)\wxpng/"
+				ObjectFile=".\vc_mswud\$(PlatformName)\wxpng/"
+				ProgramDataBaseFileName="..\..\lib\vc_lib\$(PlatformName)\wxpngd.pdb"
 				SuppressStartupBanner="true"
 				DebugInformationFormat="3"
 			/>
@@ -510,7 +510,7 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="..\..\lib\vc_lib\wxpngd.lib"
+				OutputFile="..\..\lib\vc_lib\$(PlatformName)\wxpngd.lib"
 				SuppressStartupBanner="true"
 			/>
 			<Tool
@@ -522,7 +522,7 @@
 			<Tool
 				Name="VCBscMakeTool"
 				SuppressStartupBanner="true"
-				OutputFile=".\..\..\lib\vc_lib/wx_wxpng.bsc"
+				OutputFile=".\..\..\lib\vc_lib\$(PlatformName)/wx_wxpng.bsc"
 			/>
 			<Tool
 				Name="VCFxCopTool"
@@ -533,8 +533,8 @@
 		</Configuration>
 		<Configuration
 			Name="DLL Universal Unicode Debug|Win32"
-			OutputDirectory=".\..\..\lib\vc_dll"
-			IntermediateDirectory=".\vc_mswunivuddll\wxpng"
+			OutputDirectory=".\..\..\lib\vc_dll\$(PlatformName)"
+			IntermediateDirectory=".\vc_mswunivuddll\$(PlatformName)\wxpng"
 			ConfigurationType="4"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
 			UseOfMFC="0"
@@ -565,10 +565,10 @@
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
 				RuntimeTypeInfo="true"
-				PrecompiledHeaderFile=".\vc_mswunivuddll\wxpng/wx_wxpng.pch"
-				AssemblerListingLocation=".\vc_mswunivuddll\wxpng/"
-				ObjectFile=".\vc_mswunivuddll\wxpng/"
-				ProgramDataBaseFileName="..\..\lib\vc_dll\wxpngd.pdb"
+				PrecompiledHeaderFile=".\vc_mswunivuddll\$(PlatformName)\wxpng/wx_wxpng.pch"
+				AssemblerListingLocation=".\vc_mswunivuddll\$(PlatformName)\wxpng/"
+				ObjectFile=".\vc_mswunivuddll\$(PlatformName)\wxpng/"
+				ProgramDataBaseFileName="..\..\lib\vc_dll\$(PlatformName)\wxpngd.pdb"
 				SuppressStartupBanner="true"
 				DebugInformationFormat="3"
 			/>
@@ -584,7 +584,7 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="..\..\lib\vc_dll\wxpngd.lib"
+				OutputFile="..\..\lib\vc_dll\$(PlatformName)\wxpngd.lib"
 				SuppressStartupBanner="true"
 			/>
 			<Tool
@@ -596,7 +596,7 @@
 			<Tool
 				Name="VCBscMakeTool"
 				SuppressStartupBanner="true"
-				OutputFile=".\..\..\lib\vc_dll/wx_wxpng.bsc"
+				OutputFile=".\..\..\lib\vc_dll\$(PlatformName)/wx_wxpng.bsc"
 			/>
 			<Tool
 				Name="VCFxCopTool"
@@ -607,8 +607,8 @@
 		</Configuration>
 		<Configuration
 			Name="DLL Universal Unicode Release|Win32"
-			OutputDirectory=".\..\..\lib\vc_dll"
-			IntermediateDirectory=".\vc_mswunivudll\wxpng"
+			OutputDirectory=".\..\..\lib\vc_dll\$(PlatformName)"
+			IntermediateDirectory=".\vc_mswunivudll\$(PlatformName)\wxpng"
 			ConfigurationType="4"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
 			UseOfMFC="0"
@@ -640,10 +640,10 @@
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
 				RuntimeTypeInfo="true"
-				PrecompiledHeaderFile=".\vc_mswunivudll\wxpng/wx_wxpng.pch"
-				AssemblerListingLocation=".\vc_mswunivudll\wxpng/"
-				ObjectFile=".\vc_mswunivudll\wxpng/"
-				ProgramDataBaseFileName="..\..\lib\vc_dll\wxpng.pdb"
+				PrecompiledHeaderFile=".\vc_mswunivudll\$(PlatformName)\wxpng/wx_wxpng.pch"
+				AssemblerListingLocation=".\vc_mswunivudll\$(PlatformName)\wxpng/"
+				ObjectFile=".\vc_mswunivudll\$(PlatformName)\wxpng/"
+				ProgramDataBaseFileName="..\..\lib\vc_dll\$(PlatformName)\wxpng.pdb"
 				SuppressStartupBanner="true"
 			/>
 			<Tool
@@ -658,7 +658,7 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="..\..\lib\vc_dll\wxpng.lib"
+				OutputFile="..\..\lib\vc_dll\$(PlatformName)\wxpng.lib"
 				SuppressStartupBanner="true"
 			/>
 			<Tool
@@ -670,7 +670,7 @@
 			<Tool
 				Name="VCBscMakeTool"
 				SuppressStartupBanner="true"
-				OutputFile=".\..\..\lib\vc_dll/wx_wxpng.bsc"
+				OutputFile=".\..\..\lib\vc_dll\$(PlatformName)/wx_wxpng.bsc"
 			/>
 			<Tool
 				Name="VCFxCopTool"
@@ -681,8 +681,8 @@
 		</Configuration>
 		<Configuration
 			Name="DLL Unicode Debug|Win32"
-			OutputDirectory=".\..\..\lib\vc_dll"
-			IntermediateDirectory=".\vc_mswuddll\wxpng"
+			OutputDirectory=".\..\..\lib\vc_dll\$(PlatformName)"
+			IntermediateDirectory=".\vc_mswuddll\$(PlatformName)\wxpng"
 			ConfigurationType="4"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
 			UseOfMFC="0"
@@ -713,10 +713,10 @@
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
 				RuntimeTypeInfo="true"
-				PrecompiledHeaderFile=".\vc_mswuddll\wxpng/wx_wxpng.pch"
-				AssemblerListingLocation=".\vc_mswuddll\wxpng/"
-				ObjectFile=".\vc_mswuddll\wxpng/"
-				ProgramDataBaseFileName="..\..\lib\vc_dll\wxpngd.pdb"
+				PrecompiledHeaderFile=".\vc_mswuddll\$(PlatformName)\wxpng/wx_wxpng.pch"
+				AssemblerListingLocation=".\vc_mswuddll\$(PlatformName)\wxpng/"
+				ObjectFile=".\vc_mswuddll\$(PlatformName)\wxpng/"
+				ProgramDataBaseFileName="..\..\lib\vc_dll\$(PlatformName)\wxpngd.pdb"
 				SuppressStartupBanner="true"
 				DebugInformationFormat="3"
 			/>
@@ -732,7 +732,7 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="..\..\lib\vc_dll\wxpngd.lib"
+				OutputFile="..\..\lib\vc_dll\$(PlatformName)\wxpngd.lib"
 				SuppressStartupBanner="true"
 			/>
 			<Tool
@@ -744,7 +744,7 @@
 			<Tool
 				Name="VCBscMakeTool"
 				SuppressStartupBanner="true"
-				OutputFile=".\..\..\lib\vc_dll/wx_wxpng.bsc"
+				OutputFile=".\..\..\lib\vc_dll\$(PlatformName)/wx_wxpng.bsc"
 			/>
 			<Tool
 				Name="VCFxCopTool"
@@ -755,8 +755,8 @@
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory=".\..\..\lib\vc_lib"
-			IntermediateDirectory=".\vc_msw\wxpng"
+			OutputDirectory=".\..\..\lib\vc_lib\$(PlatformName)"
+			IntermediateDirectory=".\vc_msw\$(PlatformName)\wxpng"
 			ConfigurationType="4"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
 			UseOfMFC="0"
@@ -788,10 +788,10 @@
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
 				RuntimeTypeInfo="true"
-				PrecompiledHeaderFile=".\vc_msw\wxpng/wx_wxpng.pch"
-				AssemblerListingLocation=".\vc_msw\wxpng/"
-				ObjectFile=".\vc_msw\wxpng/"
-				ProgramDataBaseFileName="..\..\lib\vc_lib\wxpng.pdb"
+				PrecompiledHeaderFile=".\vc_msw\$(PlatformName)\wxpng/wx_wxpng.pch"
+				AssemblerListingLocation=".\vc_msw\$(PlatformName)\wxpng/"
+				ObjectFile=".\vc_msw\$(PlatformName)\wxpng/"
+				ProgramDataBaseFileName="..\..\lib\vc_lib\$(PlatformName)\wxpng.pdb"
 				SuppressStartupBanner="true"
 			/>
 			<Tool
@@ -806,7 +806,7 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="..\..\lib\vc_lib\wxpng.lib"
+				OutputFile="..\..\lib\vc_lib\$(PlatformName)\wxpng.lib"
 				SuppressStartupBanner="true"
 			/>
 			<Tool
@@ -818,7 +818,7 @@
 			<Tool
 				Name="VCBscMakeTool"
 				SuppressStartupBanner="true"
-				OutputFile=".\..\..\lib\vc_lib/wx_wxpng.bsc"
+				OutputFile=".\..\..\lib\vc_lib\$(PlatformName)/wx_wxpng.bsc"
 			/>
 			<Tool
 				Name="VCFxCopTool"
@@ -829,8 +829,8 @@
 		</Configuration>
 		<Configuration
 			Name="Unicode Release|Win32"
-			OutputDirectory=".\..\..\lib\vc_lib"
-			IntermediateDirectory=".\vc_mswu\wxpng"
+			OutputDirectory=".\..\..\lib\vc_lib\$(PlatformName)"
+			IntermediateDirectory=".\vc_mswu\$(PlatformName)\wxpng"
 			ConfigurationType="4"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
 			UseOfMFC="0"
@@ -862,10 +862,10 @@
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
 				RuntimeTypeInfo="true"
-				PrecompiledHeaderFile=".\vc_mswu\wxpng/wx_wxpng.pch"
-				AssemblerListingLocation=".\vc_mswu\wxpng/"
-				ObjectFile=".\vc_mswu\wxpng/"
-				ProgramDataBaseFileName="..\..\lib\vc_lib\wxpng.pdb"
+				PrecompiledHeaderFile=".\vc_mswu\$(PlatformName)\wxpng/wx_wxpng.pch"
+				AssemblerListingLocation=".\vc_mswu\$(PlatformName)\wxpng/"
+				ObjectFile=".\vc_mswu\$(PlatformName)\wxpng/"
+				ProgramDataBaseFileName="..\..\lib\vc_lib\$(PlatformName)\wxpng.pdb"
 				SuppressStartupBanner="true"
 			/>
 			<Tool
@@ -880,7 +880,7 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="..\..\lib\vc_lib\wxpng.lib"
+				OutputFile="..\..\lib\vc_lib\$(PlatformName)\wxpng.lib"
 				SuppressStartupBanner="true"
 			/>
 			<Tool
@@ -892,7 +892,7 @@
 			<Tool
 				Name="VCBscMakeTool"
 				SuppressStartupBanner="true"
-				OutputFile=".\..\..\lib\vc_lib/wx_wxpng.bsc"
+				OutputFile=".\..\..\lib\vc_lib\$(PlatformName)/wx_wxpng.bsc"
 			/>
 			<Tool
 				Name="VCFxCopTool"
@@ -903,8 +903,8 @@
 		</Configuration>
 		<Configuration
 			Name="Universal Unicode Debug|Win32"
-			OutputDirectory=".\..\..\lib\vc_lib"
-			IntermediateDirectory=".\vc_mswunivud\wxpng"
+			OutputDirectory=".\..\..\lib\vc_lib\$(PlatformName)"
+			IntermediateDirectory=".\vc_mswunivud\$(PlatformName)\wxpng"
 			ConfigurationType="4"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
 			UseOfMFC="0"
@@ -935,10 +935,10 @@
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
 				RuntimeTypeInfo="true"
-				PrecompiledHeaderFile=".\vc_mswunivud\wxpng/wx_wxpng.pch"
-				AssemblerListingLocation=".\vc_mswunivud\wxpng/"
-				ObjectFile=".\vc_mswunivud\wxpng/"
-				ProgramDataBaseFileName="..\..\lib\vc_lib\wxpngd.pdb"
+				PrecompiledHeaderFile=".\vc_mswunivud\$(PlatformName)\wxpng/wx_wxpng.pch"
+				AssemblerListingLocation=".\vc_mswunivud\$(PlatformName)\wxpng/"
+				ObjectFile=".\vc_mswunivud\$(PlatformName)\wxpng/"
+				ProgramDataBaseFileName="..\..\lib\vc_lib\$(PlatformName)\wxpngd.pdb"
 				SuppressStartupBanner="true"
 				DebugInformationFormat="3"
 			/>
@@ -954,7 +954,7 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="..\..\lib\vc_lib\wxpngd.lib"
+				OutputFile="..\..\lib\vc_lib\$(PlatformName)\wxpngd.lib"
 				SuppressStartupBanner="true"
 			/>
 			<Tool
@@ -966,7 +966,7 @@
 			<Tool
 				Name="VCBscMakeTool"
 				SuppressStartupBanner="true"
-				OutputFile=".\..\..\lib\vc_lib/wx_wxpng.bsc"
+				OutputFile=".\..\..\lib\vc_lib\$(PlatformName)/wx_wxpng.bsc"
 			/>
 			<Tool
 				Name="VCFxCopTool"
@@ -977,8 +977,8 @@
 		</Configuration>
 		<Configuration
 			Name="DLL Universal Debug|Win32"
-			OutputDirectory=".\..\..\lib\vc_dll"
-			IntermediateDirectory=".\vc_mswunivddll\wxpng"
+			OutputDirectory=".\..\..\lib\vc_dll\$(PlatformName)"
+			IntermediateDirectory=".\vc_mswunivddll\$(PlatformName)\wxpng"
 			ConfigurationType="4"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
 			UseOfMFC="0"
@@ -1009,10 +1009,10 @@
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
 				RuntimeTypeInfo="true"
-				PrecompiledHeaderFile=".\vc_mswunivddll\wxpng/wx_wxpng.pch"
-				AssemblerListingLocation=".\vc_mswunivddll\wxpng/"
-				ObjectFile=".\vc_mswunivddll\wxpng/"
-				ProgramDataBaseFileName="..\..\lib\vc_dll\wxpngd.pdb"
+				PrecompiledHeaderFile=".\vc_mswunivddll\$(PlatformName)\wxpng/wx_wxpng.pch"
+				AssemblerListingLocation=".\vc_mswunivddll\$(PlatformName)\wxpng/"
+				ObjectFile=".\vc_mswunivddll\$(PlatformName)\wxpng/"
+				ProgramDataBaseFileName="..\..\lib\vc_dll\$(PlatformName)\wxpngd.pdb"
 				SuppressStartupBanner="true"
 				DebugInformationFormat="3"
 			/>
@@ -1028,7 +1028,7 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="..\..\lib\vc_dll\wxpngd.lib"
+				OutputFile="..\..\lib\vc_dll\$(PlatformName)\wxpngd.lib"
 				SuppressStartupBanner="true"
 			/>
 			<Tool
@@ -1040,7 +1040,7 @@
 			<Tool
 				Name="VCBscMakeTool"
 				SuppressStartupBanner="true"
-				OutputFile=".\..\..\lib\vc_dll/wx_wxpng.bsc"
+				OutputFile=".\..\..\lib\vc_dll\$(PlatformName)/wx_wxpng.bsc"
 			/>
 			<Tool
 				Name="VCFxCopTool"
@@ -1051,8 +1051,8 @@
 		</Configuration>
 		<Configuration
 			Name="DLL Debug|Win32"
-			OutputDirectory=".\..\..\lib\vc_dll"
-			IntermediateDirectory=".\vc_mswddll\wxpng"
+			OutputDirectory=".\..\..\lib\vc_dll\$(PlatformName)"
+			IntermediateDirectory=".\vc_mswddll\$(PlatformName)\wxpng"
 			ConfigurationType="4"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
 			UseOfMFC="0"
@@ -1083,10 +1083,10 @@
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
 				RuntimeTypeInfo="true"
-				PrecompiledHeaderFile=".\vc_mswddll\wxpng/wx_wxpng.pch"
-				AssemblerListingLocation=".\vc_mswddll\wxpng/"
-				ObjectFile=".\vc_mswddll\wxpng/"
-				ProgramDataBaseFileName="..\..\lib\vc_dll\wxpngd.pdb"
+				PrecompiledHeaderFile=".\vc_mswddll\$(PlatformName)\wxpng/wx_wxpng.pch"
+				AssemblerListingLocation=".\vc_mswddll\$(PlatformName)\wxpng/"
+				ObjectFile=".\vc_mswddll\$(PlatformName)\wxpng/"
+				ProgramDataBaseFileName="..\..\lib\vc_dll\$(PlatformName)\wxpngd.pdb"
 				SuppressStartupBanner="true"
 				DebugInformationFormat="3"
 			/>
@@ -1102,7 +1102,7 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="..\..\lib\vc_dll\wxpngd.lib"
+				OutputFile="..\..\lib\vc_dll\$(PlatformName)\wxpngd.lib"
 				SuppressStartupBanner="true"
 			/>
 			<Tool
@@ -1114,7 +1114,7 @@
 			<Tool
 				Name="VCBscMakeTool"
 				SuppressStartupBanner="true"
-				OutputFile=".\..\..\lib\vc_dll/wx_wxpng.bsc"
+				OutputFile=".\..\..\lib\vc_dll\$(PlatformName)/wx_wxpng.bsc"
 			/>
 			<Tool
 				Name="VCFxCopTool"
@@ -1125,8 +1125,8 @@
 		</Configuration>
 		<Configuration
 			Name="Universal Release|Win32"
-			OutputDirectory=".\..\..\lib\vc_lib"
-			IntermediateDirectory=".\vc_mswuniv\wxpng"
+			OutputDirectory=".\..\..\lib\vc_lib\$(PlatformName)"
+			IntermediateDirectory=".\vc_mswuniv\$(PlatformName)\wxpng"
 			ConfigurationType="4"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
 			UseOfMFC="0"
@@ -1158,10 +1158,10 @@
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
 				RuntimeTypeInfo="true"
-				PrecompiledHeaderFile=".\vc_mswuniv\wxpng/wx_wxpng.pch"
-				AssemblerListingLocation=".\vc_mswuniv\wxpng/"
-				ObjectFile=".\vc_mswuniv\wxpng/"
-				ProgramDataBaseFileName="..\..\lib\vc_lib\wxpng.pdb"
+				PrecompiledHeaderFile=".\vc_mswuniv\$(PlatformName)\wxpng/wx_wxpng.pch"
+				AssemblerListingLocation=".\vc_mswuniv\$(PlatformName)\wxpng/"
+				ObjectFile=".\vc_mswuniv\$(PlatformName)\wxpng/"
+				ProgramDataBaseFileName="..\..\lib\vc_lib\$(PlatformName)\wxpng.pdb"
 				SuppressStartupBanner="true"
 			/>
 			<Tool
@@ -1176,7 +1176,7 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="..\..\lib\vc_lib\wxpng.lib"
+				OutputFile="..\..\lib\vc_lib\$(PlatformName)\wxpng.lib"
 				SuppressStartupBanner="true"
 			/>
 			<Tool
@@ -1188,7 +1188,7 @@
 			<Tool
 				Name="VCBscMakeTool"
 				SuppressStartupBanner="true"
-				OutputFile=".\..\..\lib\vc_lib/wx_wxpng.bsc"
+				OutputFile=".\..\..\lib\vc_lib\$(PlatformName)/wx_wxpng.bsc"
 			/>
 			<Tool
 				Name="VCFxCopTool"

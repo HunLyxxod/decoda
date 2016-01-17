@@ -30,7 +30,7 @@ HANDLE g_trampolineHeap = NULL;
 /**
  * Returns the size of the instruction at the specified point.
  */
-int GetInstructionSize(void* address, unsigned char* opcodeOut = NULL, int* operandSizeOut = NULL) 
+size_t GetInstructionSize(void* address, unsigned char* opcodeOut = NULL, int* operandSizeOut = NULL) 
 { 
     
     // Modified from http://www.devmaster.net/forums/showthread.php?p=47381
@@ -213,10 +213,10 @@ int GetInstructionSize(void* address, unsigned char* opcodeOut = NULL, int* oper
 /**
  * Returns the number of bytes until the next break in instructions.
  */
-int GetInstructionBoundary(void* function, int count)
+size_t GetInstructionBoundary(void* function, int count)
 {
 
-    int boundary = 0;
+    size_t boundary = 0;
 
     while (boundary < count)
     {
@@ -277,7 +277,7 @@ void AdjustRelativeJumps(void* function, int length, int offset)
         unsigned char opcode = 0;
         int operandSize = 0;
 
-        int n = GetInstructionSize(p + i, &opcode, &operandSize);
+        size_t n = GetInstructionSize(p + i, &opcode, &operandSize);
 
         if (opcode == 0xE9 || opcode == 0xE8)
         {
@@ -342,7 +342,7 @@ void* HookFunction(void* function, void* hook)
     const int jumpSize = 5;
 
     // Compute the instruction boundary so we don't override half an instruction.
-    int boundary = GetInstructionBoundary(function, jumpSize);
+    size_t boundary = GetInstructionBoundary(function, jumpSize);
 
     if (g_trampolineHeap == NULL)
     {

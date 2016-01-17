@@ -15,8 +15,8 @@
 	<Configurations>
 		<Configuration
 			Name="Unicode Release|Win32"
-			OutputDirectory=".\..\..\lib\vc_lib"
-			IntermediateDirectory=".\vc_mswu\wxregex"
+			OutputDirectory=".\..\..\lib\vc_lib\$(PlatformName)"
+			IntermediateDirectory=".\vc_mswu\$(PlatformName)\wxregex"
 			ConfigurationType="4"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
 			UseOfMFC="0"
@@ -43,16 +43,16 @@
 				AdditionalOptions="/EHsc "
 				Optimization="2"
 				InlineFunctionExpansion="1"
-				AdditionalIncludeDirectories="..\..\include,..\..\lib\vc_lib\mswu"
+				AdditionalIncludeDirectories="..\..\include,..\..\lib\vc_lib\$(PlatformName)\mswu"
 				PreprocessorDefinitions="WIN32;_LIB;__WXMSW__"
 				StringPooling="true"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
 				RuntimeTypeInfo="true"
-				PrecompiledHeaderFile=".\vc_mswu\wxregex/wx_wxregex.pch"
-				AssemblerListingLocation=".\vc_mswu\wxregex/"
-				ObjectFile=".\vc_mswu\wxregex/"
-				ProgramDataBaseFileName="..\..\lib\vc_lib\wxregexu.pdb"
+				PrecompiledHeaderFile=".\vc_mswu\$(PlatformName)\wxregex/wx_wxregex.pch"
+				AssemblerListingLocation=".\vc_mswu\$(PlatformName)\wxregex/"
+				ObjectFile=".\vc_mswu\$(PlatformName)\wxregex/"
+				ProgramDataBaseFileName="..\..\lib\vc_lib\$(PlatformName)\wxregexu.pdb"
 				SuppressStartupBanner="true"
 			/>
 			<Tool
@@ -67,7 +67,7 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="..\..\lib\vc_lib\wxregexu.lib"
+				OutputFile="..\..\lib\vc_lib\$(PlatformName)\wxregexu.lib"
 				SuppressStartupBanner="true"
 			/>
 			<Tool
@@ -79,7 +79,7 @@
 			<Tool
 				Name="VCBscMakeTool"
 				SuppressStartupBanner="true"
-				OutputFile=".\..\..\lib\vc_lib/wx_wxregex.bsc"
+				OutputFile=".\..\..\lib\vc_lib\$(PlatformName)/wx_wxregex.bsc"
 			/>
 			<Tool
 				Name="VCFxCopTool"
@@ -90,8 +90,8 @@
 		</Configuration>
 		<Configuration
 			Name="Universal Release|Win32"
-			OutputDirectory=".\..\..\lib\vc_lib"
-			IntermediateDirectory=".\vc_mswuniv\wxregex"
+			OutputDirectory=".\..\..\lib\vc_lib\$(PlatformName)"
+			IntermediateDirectory=".\vc_mswuniv\$(PlatformName)\wxregex"
 			ConfigurationType="4"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
 			UseOfMFC="0"
@@ -117,16 +117,16 @@
 				AdditionalOptions="/EHsc "
 				Optimization="2"
 				InlineFunctionExpansion="1"
-				AdditionalIncludeDirectories="..\..\include,..\..\lib\vc_lib\mswuniv"
+				AdditionalIncludeDirectories="..\..\include,..\..\lib\vc_lib\$(PlatformName)\mswuniv"
 				PreprocessorDefinitions="WIN32;_LIB;__WXMSW__;__WXUNIVERSAL__"
 				StringPooling="true"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
 				RuntimeTypeInfo="true"
-				PrecompiledHeaderFile=".\vc_mswuniv\wxregex/wx_wxregex.pch"
-				AssemblerListingLocation=".\vc_mswuniv\wxregex/"
-				ObjectFile=".\vc_mswuniv\wxregex/"
-				ProgramDataBaseFileName="..\..\lib\vc_lib\wxregex.pdb"
+				PrecompiledHeaderFile=".\vc_mswuniv\$(PlatformName)\wxregex/wx_wxregex.pch"
+				AssemblerListingLocation=".\vc_mswuniv\$(PlatformName)\wxregex/"
+				ObjectFile=".\vc_mswuniv\$(PlatformName)\wxregex/"
+				ProgramDataBaseFileName="..\..\lib\vc_lib\$(PlatformName)\wxregex.pdb"
 				SuppressStartupBanner="true"
 			/>
 			<Tool
@@ -141,7 +141,7 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="..\..\lib\vc_lib\wxregex.lib"
+				OutputFile="..\..\lib\vc_lib\$(PlatformName)\wxregex.lib"
 				SuppressStartupBanner="true"
 			/>
 			<Tool
@@ -153,7 +153,7 @@
 			<Tool
 				Name="VCBscMakeTool"
 				SuppressStartupBanner="true"
-				OutputFile=".\..\..\lib\vc_lib/wx_wxregex.bsc"
+				OutputFile=".\..\..\lib\vc_lib\$(PlatformName)/wx_wxregex.bsc"
 			/>
 			<Tool
 				Name="VCFxCopTool"
@@ -164,8 +164,8 @@
 		</Configuration>
 		<Configuration
 			Name="Universal Unicode Release|Win32"
-			OutputDirectory=".\..\..\lib\vc_lib"
-			IntermediateDirectory=".\vc_mswunivu\wxregex"
+			OutputDirectory=".\..\..\lib\vc_lib\$(PlatformName)"
+			IntermediateDirectory=".\vc_mswunivu\$(PlatformName)\wxregex"
 			ConfigurationType="4"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
 			UseOfMFC="0"
@@ -192,16 +192,16 @@
 				AdditionalOptions="/EHsc "
 				Optimization="2"
 				InlineFunctionExpansion="1"
-				AdditionalIncludeDirectories="..\..\include,..\..\lib\vc_lib\mswunivu"
+				AdditionalIncludeDirectories="..\..\include,..\..\lib\vc_lib\$(PlatformName)\mswunivu"
 				PreprocessorDefinitions="WIN32;_LIB;__WXMSW__;__WXUNIVERSAL__"
 				StringPooling="true"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
 				RuntimeTypeInfo="true"
-				PrecompiledHeaderFile=".\vc_mswunivu\wxregex/wx_wxregex.pch"
-				AssemblerListingLocation=".\vc_mswunivu\wxregex/"
-				ObjectFile=".\vc_mswunivu\wxregex/"
-				ProgramDataBaseFileName="..\..\lib\vc_lib\wxregexu.pdb"
+				PrecompiledHeaderFile=".\vc_mswunivu\$(PlatformName)\wxregex/wx_wxregex.pch"
+				AssemblerListingLocation=".\vc_mswunivu\$(PlatformName)\wxregex/"
+				ObjectFile=".\vc_mswunivu\$(PlatformName)\wxregex/"
+				ProgramDataBaseFileName="..\..\lib\vc_lib\$(PlatformName)\wxregexu.pdb"
 				SuppressStartupBanner="true"
 			/>
 			<Tool
@@ -216,7 +216,7 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="..\..\lib\vc_lib\wxregexu.lib"
+				OutputFile="..\..\lib\vc_lib\$(PlatformName)\wxregexu.lib"
 				SuppressStartupBanner="true"
 			/>
 			<Tool
@@ -228,7 +228,7 @@
 			<Tool
 				Name="VCBscMakeTool"
 				SuppressStartupBanner="true"
-				OutputFile=".\..\..\lib\vc_lib/wx_wxregex.bsc"
+				OutputFile=".\..\..\lib\vc_lib\$(PlatformName)/wx_wxregex.bsc"
 			/>
 			<Tool
 				Name="VCFxCopTool"
@@ -239,8 +239,8 @@
 		</Configuration>
 		<Configuration
 			Name="DLL Universal Debug|Win32"
-			OutputDirectory=".\..\..\lib\vc_dll"
-			IntermediateDirectory=".\vc_mswunivddll\wxregex"
+			OutputDirectory=".\..\..\lib\vc_dll\$(PlatformName)"
+			IntermediateDirectory=".\vc_mswunivddll\$(PlatformName)\wxregex"
 			ConfigurationType="4"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
 			UseOfMFC="0"
@@ -265,16 +265,16 @@
 				Name="VCCLCompilerTool"
 				AdditionalOptions="/EHsc "
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..\include,..\..\lib\vc_dll\mswunivd"
+				AdditionalIncludeDirectories="..\..\include,..\..\lib\vc_dll\$(PlatformName)\mswunivd"
 				PreprocessorDefinitions="WIN32;_LIB;_DEBUG;__WXMSW__;__WXUNIVERSAL__"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
 				RuntimeTypeInfo="true"
-				PrecompiledHeaderFile=".\vc_mswunivddll\wxregex/wx_wxregex.pch"
-				AssemblerListingLocation=".\vc_mswunivddll\wxregex/"
-				ObjectFile=".\vc_mswunivddll\wxregex/"
-				ProgramDataBaseFileName="..\..\lib\vc_dll\wxregexd.pdb"
+				PrecompiledHeaderFile=".\vc_mswunivddll\$(PlatformName)\wxregex/wx_wxregex.pch"
+				AssemblerListingLocation=".\vc_mswunivddll\$(PlatformName)\wxregex/"
+				ObjectFile=".\vc_mswunivddll\$(PlatformName)\wxregex/"
+				ProgramDataBaseFileName="..\..\lib\vc_dll\$(PlatformName)\wxregexd.pdb"
 				SuppressStartupBanner="true"
 				DebugInformationFormat="3"
 			/>
@@ -290,7 +290,7 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="..\..\lib\vc_dll\wxregexd.lib"
+				OutputFile="..\..\lib\vc_dll\$(PlatformName)\wxregexd.lib"
 				SuppressStartupBanner="true"
 			/>
 			<Tool
@@ -302,7 +302,7 @@
 			<Tool
 				Name="VCBscMakeTool"
 				SuppressStartupBanner="true"
-				OutputFile=".\..\..\lib\vc_dll/wx_wxregex.bsc"
+				OutputFile=".\..\..\lib\vc_dll\$(PlatformName)/wx_wxregex.bsc"
 			/>
 			<Tool
 				Name="VCFxCopTool"
@@ -313,8 +313,8 @@
 		</Configuration>
 		<Configuration
 			Name="DLL Release|Win32"
-			OutputDirectory=".\..\..\lib\vc_dll"
-			IntermediateDirectory=".\vc_mswdll\wxregex"
+			OutputDirectory=".\..\..\lib\vc_dll\$(PlatformName)"
+			IntermediateDirectory=".\vc_mswdll\$(PlatformName)\wxregex"
 			ConfigurationType="4"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
 			UseOfMFC="0"
@@ -340,16 +340,16 @@
 				AdditionalOptions="/EHsc "
 				Optimization="2"
 				InlineFunctionExpansion="1"
-				AdditionalIncludeDirectories="..\..\include,..\..\lib\vc_dll\msw"
+				AdditionalIncludeDirectories="..\..\include,..\..\lib\vc_dll\$(PlatformName)\msw"
 				PreprocessorDefinitions="WIN32;_LIB;__WXMSW__"
 				StringPooling="true"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
 				RuntimeTypeInfo="true"
-				PrecompiledHeaderFile=".\vc_mswdll\wxregex/wx_wxregex.pch"
-				AssemblerListingLocation=".\vc_mswdll\wxregex/"
-				ObjectFile=".\vc_mswdll\wxregex/"
-				ProgramDataBaseFileName="..\..\lib\vc_dll\wxregex.pdb"
+				PrecompiledHeaderFile=".\vc_mswdll\$(PlatformName)\wxregex/wx_wxregex.pch"
+				AssemblerListingLocation=".\vc_mswdll\$(PlatformName)\wxregex/"
+				ObjectFile=".\vc_mswdll\$(PlatformName)\wxregex/"
+				ProgramDataBaseFileName="..\..\lib\vc_dll\$(PlatformName)\wxregex.pdb"
 				SuppressStartupBanner="true"
 			/>
 			<Tool
@@ -364,7 +364,7 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="..\..\lib\vc_dll\wxregex.lib"
+				OutputFile="..\..\lib\vc_dll\$(PlatformName)\wxregex.lib"
 				SuppressStartupBanner="true"
 			/>
 			<Tool
@@ -376,7 +376,7 @@
 			<Tool
 				Name="VCBscMakeTool"
 				SuppressStartupBanner="true"
-				OutputFile=".\..\..\lib\vc_dll/wx_wxregex.bsc"
+				OutputFile=".\..\..\lib\vc_dll\$(PlatformName)/wx_wxregex.bsc"
 			/>
 			<Tool
 				Name="VCFxCopTool"
@@ -387,8 +387,8 @@
 		</Configuration>
 		<Configuration
 			Name="DLL Universal Release|Win32"
-			OutputDirectory=".\..\..\lib\vc_dll"
-			IntermediateDirectory=".\vc_mswunivdll\wxregex"
+			OutputDirectory=".\..\..\lib\vc_dll\$(PlatformName)"
+			IntermediateDirectory=".\vc_mswunivdll\$(PlatformName)\wxregex"
 			ConfigurationType="4"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
 			UseOfMFC="0"
@@ -414,16 +414,16 @@
 				AdditionalOptions="/EHsc "
 				Optimization="2"
 				InlineFunctionExpansion="1"
-				AdditionalIncludeDirectories="..\..\include,..\..\lib\vc_dll\mswuniv"
+				AdditionalIncludeDirectories="..\..\include,..\..\lib\vc_dll\$(PlatformName)\mswuniv"
 				PreprocessorDefinitions="WIN32;_LIB;__WXMSW__;__WXUNIVERSAL__"
 				StringPooling="true"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
 				RuntimeTypeInfo="true"
-				PrecompiledHeaderFile=".\vc_mswunivdll\wxregex/wx_wxregex.pch"
-				AssemblerListingLocation=".\vc_mswunivdll\wxregex/"
-				ObjectFile=".\vc_mswunivdll\wxregex/"
-				ProgramDataBaseFileName="..\..\lib\vc_dll\wxregex.pdb"
+				PrecompiledHeaderFile=".\vc_mswunivdll\$(PlatformName)\wxregex/wx_wxregex.pch"
+				AssemblerListingLocation=".\vc_mswunivdll\$(PlatformName)\wxregex/"
+				ObjectFile=".\vc_mswunivdll\$(PlatformName)\wxregex/"
+				ProgramDataBaseFileName="..\..\lib\vc_dll\$(PlatformName)\wxregex.pdb"
 				SuppressStartupBanner="true"
 			/>
 			<Tool
@@ -438,7 +438,7 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="..\..\lib\vc_dll\wxregex.lib"
+				OutputFile="..\..\lib\vc_dll\$(PlatformName)\wxregex.lib"
 				SuppressStartupBanner="true"
 			/>
 			<Tool
@@ -450,7 +450,7 @@
 			<Tool
 				Name="VCBscMakeTool"
 				SuppressStartupBanner="true"
-				OutputFile=".\..\..\lib\vc_dll/wx_wxregex.bsc"
+				OutputFile=".\..\..\lib\vc_dll\$(PlatformName)/wx_wxregex.bsc"
 			/>
 			<Tool
 				Name="VCFxCopTool"
@@ -461,8 +461,8 @@
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory=".\..\..\lib\vc_lib"
-			IntermediateDirectory=".\vc_msw\wxregex"
+			OutputDirectory=".\..\..\lib\vc_lib\$(PlatformName)"
+			IntermediateDirectory=".\vc_msw\$(PlatformName)\wxregex"
 			ConfigurationType="4"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
 			UseOfMFC="0"
@@ -488,16 +488,16 @@
 				AdditionalOptions="/EHsc "
 				Optimization="2"
 				InlineFunctionExpansion="1"
-				AdditionalIncludeDirectories="..\..\include,..\..\lib\vc_lib\msw"
+				AdditionalIncludeDirectories="..\..\include,..\..\lib\vc_lib\$(PlatformName)\msw"
 				PreprocessorDefinitions="WIN32;_LIB;__WXMSW__"
 				StringPooling="true"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
 				RuntimeTypeInfo="true"
-				PrecompiledHeaderFile=".\vc_msw\wxregex/wx_wxregex.pch"
-				AssemblerListingLocation=".\vc_msw\wxregex/"
-				ObjectFile=".\vc_msw\wxregex/"
-				ProgramDataBaseFileName="..\..\lib\vc_lib\wxregex.pdb"
+				PrecompiledHeaderFile=".\vc_msw\$(PlatformName)\wxregex/wx_wxregex.pch"
+				AssemblerListingLocation=".\vc_msw\$(PlatformName)\wxregex/"
+				ObjectFile=".\vc_msw\$(PlatformName)\wxregex/"
+				ProgramDataBaseFileName="..\..\lib\vc_lib\$(PlatformName)\wxregex.pdb"
 				SuppressStartupBanner="true"
 			/>
 			<Tool
@@ -512,7 +512,7 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="..\..\lib\vc_lib\wxregex.lib"
+				OutputFile="..\..\lib\vc_lib\$(PlatformName)\wxregex.lib"
 				SuppressStartupBanner="true"
 			/>
 			<Tool
@@ -524,7 +524,7 @@
 			<Tool
 				Name="VCBscMakeTool"
 				SuppressStartupBanner="true"
-				OutputFile=".\..\..\lib\vc_lib/wx_wxregex.bsc"
+				OutputFile=".\..\..\lib\vc_lib\$(PlatformName)/wx_wxregex.bsc"
 			/>
 			<Tool
 				Name="VCFxCopTool"
@@ -535,8 +535,8 @@
 		</Configuration>
 		<Configuration
 			Name="DLL Unicode Release|Win32"
-			OutputDirectory=".\..\..\lib\vc_dll"
-			IntermediateDirectory=".\vc_mswudll\wxregex"
+			OutputDirectory=".\..\..\lib\vc_dll\$(PlatformName)"
+			IntermediateDirectory=".\vc_mswudll\$(PlatformName)\wxregex"
 			ConfigurationType="4"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
 			UseOfMFC="0"
@@ -563,16 +563,16 @@
 				AdditionalOptions="/EHsc "
 				Optimization="2"
 				InlineFunctionExpansion="1"
-				AdditionalIncludeDirectories="..\..\include,..\..\lib\vc_dll\mswu"
+				AdditionalIncludeDirectories="..\..\include,..\..\lib\vc_dll\$(PlatformName)\mswu"
 				PreprocessorDefinitions="WIN32;_LIB;__WXMSW__"
 				StringPooling="true"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
 				RuntimeTypeInfo="true"
-				PrecompiledHeaderFile=".\vc_mswudll\wxregex/wx_wxregex.pch"
-				AssemblerListingLocation=".\vc_mswudll\wxregex/"
-				ObjectFile=".\vc_mswudll\wxregex/"
-				ProgramDataBaseFileName="..\..\lib\vc_dll\wxregexu.pdb"
+				PrecompiledHeaderFile=".\vc_mswudll\$(PlatformName)\wxregex/wx_wxregex.pch"
+				AssemblerListingLocation=".\vc_mswudll\$(PlatformName)\wxregex/"
+				ObjectFile=".\vc_mswudll\$(PlatformName)\wxregex/"
+				ProgramDataBaseFileName="..\..\lib\vc_dll\$(PlatformName)\wxregexu.pdb"
 				SuppressStartupBanner="true"
 			/>
 			<Tool
@@ -587,7 +587,7 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="..\..\lib\vc_dll\wxregexu.lib"
+				OutputFile="..\..\lib\vc_dll\$(PlatformName)\wxregexu.lib"
 				SuppressStartupBanner="true"
 			/>
 			<Tool
@@ -599,7 +599,7 @@
 			<Tool
 				Name="VCBscMakeTool"
 				SuppressStartupBanner="true"
-				OutputFile=".\..\..\lib\vc_dll/wx_wxregex.bsc"
+				OutputFile=".\..\..\lib\vc_dll\$(PlatformName)/wx_wxregex.bsc"
 			/>
 			<Tool
 				Name="VCFxCopTool"
@@ -610,8 +610,8 @@
 		</Configuration>
 		<Configuration
 			Name="DLL Universal Unicode Release|Win32"
-			OutputDirectory=".\..\..\lib\vc_dll"
-			IntermediateDirectory=".\vc_mswunivudll\wxregex"
+			OutputDirectory=".\..\..\lib\vc_dll\$(PlatformName)"
+			IntermediateDirectory=".\vc_mswunivudll\$(PlatformName)\wxregex"
 			ConfigurationType="4"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
 			UseOfMFC="0"
@@ -638,16 +638,16 @@
 				AdditionalOptions="/EHsc "
 				Optimization="2"
 				InlineFunctionExpansion="1"
-				AdditionalIncludeDirectories="..\..\include,..\..\lib\vc_dll\mswunivu"
+				AdditionalIncludeDirectories="..\..\include,..\..\lib\vc_dll\$(PlatformName)\mswunivu"
 				PreprocessorDefinitions="WIN32;_LIB;__WXMSW__;__WXUNIVERSAL__"
 				StringPooling="true"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
 				RuntimeTypeInfo="true"
-				PrecompiledHeaderFile=".\vc_mswunivudll\wxregex/wx_wxregex.pch"
-				AssemblerListingLocation=".\vc_mswunivudll\wxregex/"
-				ObjectFile=".\vc_mswunivudll\wxregex/"
-				ProgramDataBaseFileName="..\..\lib\vc_dll\wxregexu.pdb"
+				PrecompiledHeaderFile=".\vc_mswunivudll\$(PlatformName)\wxregex/wx_wxregex.pch"
+				AssemblerListingLocation=".\vc_mswunivudll\$(PlatformName)\wxregex/"
+				ObjectFile=".\vc_mswunivudll\$(PlatformName)\wxregex/"
+				ProgramDataBaseFileName="..\..\lib\vc_dll\$(PlatformName)\wxregexu.pdb"
 				SuppressStartupBanner="true"
 			/>
 			<Tool
@@ -662,7 +662,7 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="..\..\lib\vc_dll\wxregexu.lib"
+				OutputFile="..\..\lib\vc_dll\$(PlatformName)\wxregexu.lib"
 				SuppressStartupBanner="true"
 			/>
 			<Tool
@@ -674,7 +674,7 @@
 			<Tool
 				Name="VCBscMakeTool"
 				SuppressStartupBanner="true"
-				OutputFile=".\..\..\lib\vc_dll/wx_wxregex.bsc"
+				OutputFile=".\..\..\lib\vc_dll\$(PlatformName)/wx_wxregex.bsc"
 			/>
 			<Tool
 				Name="VCFxCopTool"
@@ -685,8 +685,8 @@
 		</Configuration>
 		<Configuration
 			Name="Universal Unicode Debug|Win32"
-			OutputDirectory=".\..\..\lib\vc_lib"
-			IntermediateDirectory=".\vc_mswunivud\wxregex"
+			OutputDirectory=".\..\..\lib\vc_lib\$(PlatformName)"
+			IntermediateDirectory=".\vc_mswunivud\$(PlatformName)\wxregex"
 			ConfigurationType="4"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
 			UseOfMFC="0"
@@ -712,16 +712,16 @@
 				Name="VCCLCompilerTool"
 				AdditionalOptions="/EHsc "
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..\include,..\..\lib\vc_lib\mswunivud"
+				AdditionalIncludeDirectories="..\..\include,..\..\lib\vc_lib\$(PlatformName)\mswunivud"
 				PreprocessorDefinitions="WIN32;_LIB;_DEBUG;__WXMSW__;__WXUNIVERSAL__"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
 				RuntimeTypeInfo="true"
-				PrecompiledHeaderFile=".\vc_mswunivud\wxregex/wx_wxregex.pch"
-				AssemblerListingLocation=".\vc_mswunivud\wxregex/"
-				ObjectFile=".\vc_mswunivud\wxregex/"
-				ProgramDataBaseFileName="..\..\lib\vc_lib\wxregexud.pdb"
+				PrecompiledHeaderFile=".\vc_mswunivud\$(PlatformName)\wxregex/wx_wxregex.pch"
+				AssemblerListingLocation=".\vc_mswunivud\$(PlatformName)\wxregex/"
+				ObjectFile=".\vc_mswunivud\$(PlatformName)\wxregex/"
+				ProgramDataBaseFileName="..\..\lib\vc_lib\$(PlatformName)\wxregexud.pdb"
 				SuppressStartupBanner="true"
 				DebugInformationFormat="3"
 			/>
@@ -737,7 +737,7 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="..\..\lib\vc_lib\wxregexud.lib"
+				OutputFile="..\..\lib\vc_lib\$(PlatformName)\wxregexud.lib"
 				SuppressStartupBanner="true"
 			/>
 			<Tool
@@ -749,7 +749,7 @@
 			<Tool
 				Name="VCBscMakeTool"
 				SuppressStartupBanner="true"
-				OutputFile=".\..\..\lib\vc_lib/wx_wxregex.bsc"
+				OutputFile=".\..\..\lib\vc_lib\$(PlatformName)/wx_wxregex.bsc"
 			/>
 			<Tool
 				Name="VCFxCopTool"
@@ -760,8 +760,8 @@
 		</Configuration>
 		<Configuration
 			Name="Universal Debug|Win32"
-			OutputDirectory=".\..\..\lib\vc_lib"
-			IntermediateDirectory=".\vc_mswunivd\wxregex"
+			OutputDirectory=".\..\..\lib\vc_lib\$(PlatformName)"
+			IntermediateDirectory=".\vc_mswunivd\$(PlatformName)\wxregex"
 			ConfigurationType="4"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
 			UseOfMFC="0"
@@ -786,16 +786,16 @@
 				Name="VCCLCompilerTool"
 				AdditionalOptions="/EHsc "
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..\include,..\..\lib\vc_lib\mswunivd"
+				AdditionalIncludeDirectories="..\..\include,..\..\lib\vc_lib\$(PlatformName)\mswunivd"
 				PreprocessorDefinitions="WIN32;_LIB;_DEBUG;__WXMSW__;__WXUNIVERSAL__"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
 				RuntimeTypeInfo="true"
-				PrecompiledHeaderFile=".\vc_mswunivd\wxregex/wx_wxregex.pch"
-				AssemblerListingLocation=".\vc_mswunivd\wxregex/"
-				ObjectFile=".\vc_mswunivd\wxregex/"
-				ProgramDataBaseFileName="..\..\lib\vc_lib\wxregexd.pdb"
+				PrecompiledHeaderFile=".\vc_mswunivd\$(PlatformName)\wxregex/wx_wxregex.pch"
+				AssemblerListingLocation=".\vc_mswunivd\$(PlatformName)\wxregex/"
+				ObjectFile=".\vc_mswunivd\$(PlatformName)\wxregex/"
+				ProgramDataBaseFileName="..\..\lib\vc_lib\$(PlatformName)\wxregexd.pdb"
 				SuppressStartupBanner="true"
 				DebugInformationFormat="3"
 			/>
@@ -811,7 +811,7 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="..\..\lib\vc_lib\wxregexd.lib"
+				OutputFile="..\..\lib\vc_lib\$(PlatformName)\wxregexd.lib"
 				SuppressStartupBanner="true"
 			/>
 			<Tool
@@ -823,7 +823,7 @@
 			<Tool
 				Name="VCBscMakeTool"
 				SuppressStartupBanner="true"
-				OutputFile=".\..\..\lib\vc_lib/wx_wxregex.bsc"
+				OutputFile=".\..\..\lib\vc_lib\$(PlatformName)/wx_wxregex.bsc"
 			/>
 			<Tool
 				Name="VCFxCopTool"
@@ -834,8 +834,8 @@
 		</Configuration>
 		<Configuration
 			Name="DLL Unicode Debug|Win32"
-			OutputDirectory=".\..\..\lib\vc_dll"
-			IntermediateDirectory=".\vc_mswuddll\wxregex"
+			OutputDirectory=".\..\..\lib\vc_dll\$(PlatformName)"
+			IntermediateDirectory=".\vc_mswuddll\$(PlatformName)\wxregex"
 			ConfigurationType="4"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
 			UseOfMFC="0"
@@ -861,16 +861,16 @@
 				Name="VCCLCompilerTool"
 				AdditionalOptions="/EHsc "
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..\include,..\..\lib\vc_dll\mswud"
+				AdditionalIncludeDirectories="..\..\include,..\..\lib\vc_dll\$(PlatformName)\mswud"
 				PreprocessorDefinitions="WIN32;_LIB;_DEBUG;__WXMSW__"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
 				RuntimeTypeInfo="true"
-				PrecompiledHeaderFile=".\vc_mswuddll\wxregex/wx_wxregex.pch"
-				AssemblerListingLocation=".\vc_mswuddll\wxregex/"
-				ObjectFile=".\vc_mswuddll\wxregex/"
-				ProgramDataBaseFileName="..\..\lib\vc_dll\wxregexud.pdb"
+				PrecompiledHeaderFile=".\vc_mswuddll\$(PlatformName)\wxregex/wx_wxregex.pch"
+				AssemblerListingLocation=".\vc_mswuddll\$(PlatformName)\wxregex/"
+				ObjectFile=".\vc_mswuddll\$(PlatformName)\wxregex/"
+				ProgramDataBaseFileName="..\..\lib\vc_dll\$(PlatformName)\wxregexud.pdb"
 				SuppressStartupBanner="true"
 				DebugInformationFormat="3"
 			/>
@@ -886,7 +886,7 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="..\..\lib\vc_dll\wxregexud.lib"
+				OutputFile="..\..\lib\vc_dll\$(PlatformName)\wxregexud.lib"
 				SuppressStartupBanner="true"
 			/>
 			<Tool
@@ -898,7 +898,7 @@
 			<Tool
 				Name="VCBscMakeTool"
 				SuppressStartupBanner="true"
-				OutputFile=".\..\..\lib\vc_dll/wx_wxregex.bsc"
+				OutputFile=".\..\..\lib\vc_dll\$(PlatformName)/wx_wxregex.bsc"
 			/>
 			<Tool
 				Name="VCFxCopTool"
@@ -909,8 +909,8 @@
 		</Configuration>
 		<Configuration
 			Name="Unicode Debug|Win32"
-			OutputDirectory=".\..\..\lib\vc_lib"
-			IntermediateDirectory=".\vc_mswud\wxregex"
+			OutputDirectory=".\..\..\lib\vc_lib\$(PlatformName)"
+			IntermediateDirectory=".\vc_mswud\$(PlatformName)\wxregex"
 			ConfigurationType="4"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
 			UseOfMFC="0"
@@ -936,16 +936,16 @@
 				Name="VCCLCompilerTool"
 				AdditionalOptions="/EHsc "
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..\include,..\..\lib\vc_lib\mswud"
+				AdditionalIncludeDirectories="..\..\include,..\..\lib\vc_lib\$(PlatformName)\mswud"
 				PreprocessorDefinitions="WIN32;_LIB;_DEBUG;__WXMSW__"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
 				RuntimeTypeInfo="true"
-				PrecompiledHeaderFile=".\vc_mswud\wxregex/wx_wxregex.pch"
-				AssemblerListingLocation=".\vc_mswud\wxregex/"
-				ObjectFile=".\vc_mswud\wxregex/"
-				ProgramDataBaseFileName="..\..\lib\vc_lib\wxregexud.pdb"
+				PrecompiledHeaderFile=".\vc_mswud\$(PlatformName)\wxregex/wx_wxregex.pch"
+				AssemblerListingLocation=".\vc_mswud\$(PlatformName)\wxregex/"
+				ObjectFile=".\vc_mswud\$(PlatformName)\wxregex/"
+				ProgramDataBaseFileName="..\..\lib\vc_lib\$(PlatformName)\wxregexud.pdb"
 				SuppressStartupBanner="true"
 				DebugInformationFormat="3"
 			/>
@@ -961,7 +961,7 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="..\..\lib\vc_lib\wxregexud.lib"
+				OutputFile="..\..\lib\vc_lib\$(PlatformName)\wxregexud.lib"
 				SuppressStartupBanner="true"
 			/>
 			<Tool
@@ -973,7 +973,7 @@
 			<Tool
 				Name="VCBscMakeTool"
 				SuppressStartupBanner="true"
-				OutputFile=".\..\..\lib\vc_lib/wx_wxregex.bsc"
+				OutputFile=".\..\..\lib\vc_lib\$(PlatformName)/wx_wxregex.bsc"
 			/>
 			<Tool
 				Name="VCFxCopTool"
@@ -984,8 +984,8 @@
 		</Configuration>
 		<Configuration
 			Name="DLL Debug|Win32"
-			OutputDirectory=".\..\..\lib\vc_dll"
-			IntermediateDirectory=".\vc_mswddll\wxregex"
+			OutputDirectory=".\..\..\lib\vc_dll\$(PlatformName)"
+			IntermediateDirectory=".\vc_mswddll\$(PlatformName)\wxregex"
 			ConfigurationType="4"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
 			UseOfMFC="0"
@@ -1010,16 +1010,16 @@
 				Name="VCCLCompilerTool"
 				AdditionalOptions="/EHsc "
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..\include,..\..\lib\vc_dll\mswd"
+				AdditionalIncludeDirectories="..\..\include,..\..\lib\vc_dll\$(PlatformName)\mswd"
 				PreprocessorDefinitions="WIN32;_LIB;_DEBUG;__WXMSW__"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
 				RuntimeTypeInfo="true"
-				PrecompiledHeaderFile=".\vc_mswddll\wxregex/wx_wxregex.pch"
-				AssemblerListingLocation=".\vc_mswddll\wxregex/"
-				ObjectFile=".\vc_mswddll\wxregex/"
-				ProgramDataBaseFileName="..\..\lib\vc_dll\wxregexd.pdb"
+				PrecompiledHeaderFile=".\vc_mswddll\$(PlatformName)\wxregex/wx_wxregex.pch"
+				AssemblerListingLocation=".\vc_mswddll\$(PlatformName)\wxregex/"
+				ObjectFile=".\vc_mswddll\$(PlatformName)\wxregex/"
+				ProgramDataBaseFileName="..\..\lib\vc_dll\$(PlatformName)\wxregexd.pdb"
 				SuppressStartupBanner="true"
 				DebugInformationFormat="3"
 			/>
@@ -1035,7 +1035,7 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="..\..\lib\vc_dll\wxregexd.lib"
+				OutputFile="..\..\lib\vc_dll\$(PlatformName)\wxregexd.lib"
 				SuppressStartupBanner="true"
 			/>
 			<Tool
@@ -1047,7 +1047,7 @@
 			<Tool
 				Name="VCBscMakeTool"
 				SuppressStartupBanner="true"
-				OutputFile=".\..\..\lib\vc_dll/wx_wxregex.bsc"
+				OutputFile=".\..\..\lib\vc_dll\$(PlatformName)/wx_wxregex.bsc"
 			/>
 			<Tool
 				Name="VCFxCopTool"
@@ -1058,8 +1058,8 @@
 		</Configuration>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory=".\..\..\lib\vc_lib"
-			IntermediateDirectory=".\vc_mswd\wxregex"
+			OutputDirectory=".\..\..\lib\vc_lib\$(PlatformName)"
+			IntermediateDirectory=".\vc_mswd\$(PlatformName)\wxregex"
 			ConfigurationType="4"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
 			UseOfMFC="0"
@@ -1084,16 +1084,16 @@
 				Name="VCCLCompilerTool"
 				AdditionalOptions="/EHsc "
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..\include,..\..\lib\vc_lib\mswd"
+				AdditionalIncludeDirectories="..\..\include,..\..\lib\vc_lib\$(PlatformName)\mswd"
 				PreprocessorDefinitions="WIN32;_LIB;_DEBUG;__WXMSW__"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
 				RuntimeTypeInfo="true"
-				PrecompiledHeaderFile=".\vc_mswd\wxregex/wx_wxregex.pch"
-				AssemblerListingLocation=".\vc_mswd\wxregex/"
-				ObjectFile=".\vc_mswd\wxregex/"
-				ProgramDataBaseFileName="..\..\lib\vc_lib\wxregexd.pdb"
+				PrecompiledHeaderFile=".\vc_mswd\$(PlatformName)\wxregex/wx_wxregex.pch"
+				AssemblerListingLocation=".\vc_mswd\$(PlatformName)\wxregex/"
+				ObjectFile=".\vc_mswd\$(PlatformName)\wxregex/"
+				ProgramDataBaseFileName="..\..\lib\vc_lib\$(PlatformName)\wxregexd.pdb"
 				SuppressStartupBanner="true"
 				DebugInformationFormat="3"
 			/>
@@ -1109,7 +1109,7 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="..\..\lib\vc_lib\wxregexd.lib"
+				OutputFile="..\..\lib\vc_lib\$(PlatformName)\wxregexd.lib"
 				SuppressStartupBanner="true"
 			/>
 			<Tool
@@ -1121,7 +1121,7 @@
 			<Tool
 				Name="VCBscMakeTool"
 				SuppressStartupBanner="true"
-				OutputFile=".\..\..\lib\vc_lib/wx_wxregex.bsc"
+				OutputFile=".\..\..\lib\vc_lib\$(PlatformName)/wx_wxregex.bsc"
 			/>
 			<Tool
 				Name="VCFxCopTool"
@@ -1132,8 +1132,8 @@
 		</Configuration>
 		<Configuration
 			Name="DLL Universal Unicode Debug|Win32"
-			OutputDirectory=".\..\..\lib\vc_dll"
-			IntermediateDirectory=".\vc_mswunivuddll\wxregex"
+			OutputDirectory=".\..\..\lib\vc_dll\$(PlatformName)"
+			IntermediateDirectory=".\vc_mswunivuddll\$(PlatformName)\wxregex"
 			ConfigurationType="4"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC60.vsprops"
 			UseOfMFC="0"
@@ -1159,16 +1159,16 @@
 				Name="VCCLCompilerTool"
 				AdditionalOptions="/EHsc "
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..\include,..\..\lib\vc_dll\mswunivud"
+				AdditionalIncludeDirectories="..\..\include,..\..\lib\vc_dll\$(PlatformName)\mswunivud"
 				PreprocessorDefinitions="WIN32;_LIB;_DEBUG;__WXMSW__;__WXUNIVERSAL__"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
 				RuntimeTypeInfo="true"
-				PrecompiledHeaderFile=".\vc_mswunivuddll\wxregex/wx_wxregex.pch"
-				AssemblerListingLocation=".\vc_mswunivuddll\wxregex/"
-				ObjectFile=".\vc_mswunivuddll\wxregex/"
-				ProgramDataBaseFileName="..\..\lib\vc_dll\wxregexud.pdb"
+				PrecompiledHeaderFile=".\vc_mswunivuddll\$(PlatformName)\wxregex/wx_wxregex.pch"
+				AssemblerListingLocation=".\vc_mswunivuddll\$(PlatformName)\wxregex/"
+				ObjectFile=".\vc_mswunivuddll\$(PlatformName)\wxregex/"
+				ProgramDataBaseFileName="..\..\lib\vc_dll\$(PlatformName)\wxregexud.pdb"
 				SuppressStartupBanner="true"
 				DebugInformationFormat="3"
 			/>
@@ -1184,7 +1184,7 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="..\..\lib\vc_dll\wxregexud.lib"
+				OutputFile="..\..\lib\vc_dll\$(PlatformName)\wxregexud.lib"
 				SuppressStartupBanner="true"
 			/>
 			<Tool
@@ -1196,7 +1196,7 @@
 			<Tool
 				Name="VCBscMakeTool"
 				SuppressStartupBanner="true"
-				OutputFile=".\..\..\lib\vc_dll/wx_wxregex.bsc"
+				OutputFile=".\..\..\lib\vc_dll\$(PlatformName)/wx_wxregex.bsc"
 			/>
 			<Tool
 				Name="VCFxCopTool"
@@ -1816,9 +1816,9 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						Description="Creating ..\..\lib\vc_lib\mswu\wx\msw\rcdefs.h"
-						CommandLine="cl /EP /nologo &quot;$(InputPath)&quot; &gt; &quot;..\..\lib\vc_lib\mswu\wx\msw\rcdefs.h&quot;&#x0D;&#x0A;"
-						Outputs="..\..\lib\vc_lib\mswu\wx\msw\rcdefs.h"
+						Description="Creating ..\..\lib\vc_lib\$(PlatformName)\mswu\wx\msw\rcdefs.h"
+						CommandLine="cl /EP /nologo &quot;$(InputPath)&quot; &gt; &quot;..\..\lib\vc_lib\$(PlatformName)\mswu\wx\msw\rcdefs.h&quot;&#x0D;&#x0A;"
+						Outputs="..\..\lib\vc_lib\$(PlatformName)\mswu\wx\msw\rcdefs.h"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -1826,9 +1826,9 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						Description="Creating ..\..\lib\vc_lib\mswuniv\wx\msw\rcdefs.h"
-						CommandLine="cl /EP /nologo &quot;$(InputPath)&quot; &gt; &quot;..\..\lib\vc_lib\mswuniv\wx\msw\rcdefs.h&quot;&#x0D;&#x0A;"
-						Outputs="..\..\lib\vc_lib\mswuniv\wx\msw\rcdefs.h"
+						Description="Creating ..\..\lib\vc_lib\$(PlatformName)\mswuniv\wx\msw\rcdefs.h"
+						CommandLine="cl /EP /nologo &quot;$(InputPath)&quot; &gt; &quot;..\..\lib\vc_lib\$(PlatformName)\mswuniv\wx\msw\rcdefs.h&quot;&#x0D;&#x0A;"
+						Outputs="..\..\lib\vc_lib\$(PlatformName)\mswuniv\wx\msw\rcdefs.h"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -1836,9 +1836,9 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						Description="Creating ..\..\lib\vc_lib\mswunivu\wx\msw\rcdefs.h"
-						CommandLine="cl /EP /nologo &quot;$(InputPath)&quot; &gt; &quot;..\..\lib\vc_lib\mswunivu\wx\msw\rcdefs.h&quot;&#x0D;&#x0A;"
-						Outputs="..\..\lib\vc_lib\mswunivu\wx\msw\rcdefs.h"
+						Description="Creating ..\..\lib\vc_lib\$(PlatformName)\mswunivu\wx\msw\rcdefs.h"
+						CommandLine="cl /EP /nologo &quot;$(InputPath)&quot; &gt; &quot;..\..\lib\vc_lib\$(PlatformName)\mswunivu\wx\msw\rcdefs.h&quot;&#x0D;&#x0A;"
+						Outputs="..\..\lib\vc_lib\$(PlatformName)\mswunivu\wx\msw\rcdefs.h"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -1846,9 +1846,9 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						Description="Creating ..\..\lib\vc_dll\mswunivd\wx\msw\rcdefs.h"
-						CommandLine="cl /EP /nologo &quot;$(InputPath)&quot; &gt; &quot;..\..\lib\vc_dll\mswunivd\wx\msw\rcdefs.h&quot;&#x0D;&#x0A;"
-						Outputs="..\..\lib\vc_dll\mswunivd\wx\msw\rcdefs.h"
+						Description="Creating ..\..\lib\vc_dll\$(PlatformName)\mswunivd\wx\msw\rcdefs.h"
+						CommandLine="cl /EP /nologo &quot;$(InputPath)&quot; &gt; &quot;..\..\lib\vc_dll\$(PlatformName)\mswunivd\wx\msw\rcdefs.h&quot;&#x0D;&#x0A;"
+						Outputs="..\..\lib\vc_dll\$(PlatformName)\mswunivd\wx\msw\rcdefs.h"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -1856,9 +1856,9 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						Description="Creating ..\..\lib\vc_dll\msw\wx\msw\rcdefs.h"
-						CommandLine="cl /EP /nologo &quot;$(InputPath)&quot; &gt; &quot;..\..\lib\vc_dll\msw\wx\msw\rcdefs.h&quot;&#x0D;&#x0A;"
-						Outputs="..\..\lib\vc_dll\msw\wx\msw\rcdefs.h"
+						Description="Creating ..\..\lib\vc_dll\$(PlatformName)\msw\wx\msw\rcdefs.h"
+						CommandLine="cl /EP /nologo &quot;$(InputPath)&quot; &gt; &quot;..\..\lib\vc_dll\$(PlatformName)\msw\wx\msw\rcdefs.h&quot;&#x0D;&#x0A;"
+						Outputs="..\..\lib\vc_dll\$(PlatformName)\msw\wx\msw\rcdefs.h"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -1866,9 +1866,9 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						Description="Creating ..\..\lib\vc_dll\mswuniv\wx\msw\rcdefs.h"
-						CommandLine="cl /EP /nologo &quot;$(InputPath)&quot; &gt; &quot;..\..\lib\vc_dll\mswuniv\wx\msw\rcdefs.h&quot;&#x0D;&#x0A;"
-						Outputs="..\..\lib\vc_dll\mswuniv\wx\msw\rcdefs.h"
+						Description="Creating ..\..\lib\vc_dll\$(PlatformName)\mswuniv\wx\msw\rcdefs.h"
+						CommandLine="cl /EP /nologo &quot;$(InputPath)&quot; &gt; &quot;..\..\lib\vc_dll\$(PlatformName)\mswuniv\wx\msw\rcdefs.h&quot;&#x0D;&#x0A;"
+						Outputs="..\..\lib\vc_dll\$(PlatformName)\mswuniv\wx\msw\rcdefs.h"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -1876,9 +1876,9 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						Description="Creating ..\..\lib\vc_lib\msw\wx\msw\rcdefs.h"
-						CommandLine="cl /EP /nologo &quot;$(InputPath)&quot; &gt; &quot;..\..\lib\vc_lib\msw\wx\msw\rcdefs.h&quot;&#x0D;&#x0A;"
-						Outputs="..\..\lib\vc_lib\msw\wx\msw\rcdefs.h"
+						Description="Creating ..\..\lib\vc_lib\$(PlatformName)\msw\wx\msw\rcdefs.h"
+						CommandLine="cl /EP /nologo &quot;$(InputPath)&quot; &gt; &quot;..\..\lib\vc_lib\$(PlatformName)\msw\wx\msw\rcdefs.h&quot;&#x0D;&#x0A;"
+						Outputs="..\..\lib\vc_lib\$(PlatformName)\msw\wx\msw\rcdefs.h"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -1886,9 +1886,9 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						Description="Creating ..\..\lib\vc_dll\mswu\wx\msw\rcdefs.h"
-						CommandLine="cl /EP /nologo &quot;$(InputPath)&quot; &gt; &quot;..\..\lib\vc_dll\mswu\wx\msw\rcdefs.h&quot;&#x0D;&#x0A;"
-						Outputs="..\..\lib\vc_dll\mswu\wx\msw\rcdefs.h"
+						Description="Creating ..\..\lib\vc_dll\$(PlatformName)\mswu\wx\msw\rcdefs.h"
+						CommandLine="cl /EP /nologo &quot;$(InputPath)&quot; &gt; &quot;..\..\lib\vc_dll\$(PlatformName)\mswu\wx\msw\rcdefs.h&quot;&#x0D;&#x0A;"
+						Outputs="..\..\lib\vc_dll\$(PlatformName)\mswu\wx\msw\rcdefs.h"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -1896,9 +1896,9 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						Description="Creating ..\..\lib\vc_dll\mswunivu\wx\msw\rcdefs.h"
-						CommandLine="cl /EP /nologo &quot;$(InputPath)&quot; &gt; &quot;..\..\lib\vc_dll\mswunivu\wx\msw\rcdefs.h&quot;&#x0D;&#x0A;"
-						Outputs="..\..\lib\vc_dll\mswunivu\wx\msw\rcdefs.h"
+						Description="Creating ..\..\lib\vc_dll\$(PlatformName)\mswunivu\wx\msw\rcdefs.h"
+						CommandLine="cl /EP /nologo &quot;$(InputPath)&quot; &gt; &quot;..\..\lib\vc_dll\$(PlatformName)\mswunivu\wx\msw\rcdefs.h&quot;&#x0D;&#x0A;"
+						Outputs="..\..\lib\vc_dll\$(PlatformName)\mswunivu\wx\msw\rcdefs.h"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -1906,9 +1906,9 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						Description="Creating ..\..\lib\vc_lib\mswunivud\wx\msw\rcdefs.h"
-						CommandLine="cl /EP /nologo &quot;$(InputPath)&quot; &gt; &quot;..\..\lib\vc_lib\mswunivud\wx\msw\rcdefs.h&quot;&#x0D;&#x0A;"
-						Outputs="..\..\lib\vc_lib\mswunivud\wx\msw\rcdefs.h"
+						Description="Creating ..\..\lib\vc_lib\$(PlatformName)\mswunivud\wx\msw\rcdefs.h"
+						CommandLine="cl /EP /nologo &quot;$(InputPath)&quot; &gt; &quot;..\..\lib\vc_lib\$(PlatformName)\mswunivud\wx\msw\rcdefs.h&quot;&#x0D;&#x0A;"
+						Outputs="..\..\lib\vc_lib\$(PlatformName)\mswunivud\wx\msw\rcdefs.h"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -1916,9 +1916,9 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						Description="Creating ..\..\lib\vc_lib\mswunivd\wx\msw\rcdefs.h"
-						CommandLine="cl /EP /nologo &quot;$(InputPath)&quot; &gt; &quot;..\..\lib\vc_lib\mswunivd\wx\msw\rcdefs.h&quot;&#x0D;&#x0A;"
-						Outputs="..\..\lib\vc_lib\mswunivd\wx\msw\rcdefs.h"
+						Description="Creating ..\..\lib\vc_lib\$(PlatformName)\mswunivd\wx\msw\rcdefs.h"
+						CommandLine="cl /EP /nologo &quot;$(InputPath)&quot; &gt; &quot;..\..\lib\vc_lib\$(PlatformName)\mswunivd\wx\msw\rcdefs.h&quot;&#x0D;&#x0A;"
+						Outputs="..\..\lib\vc_lib\$(PlatformName)\mswunivd\wx\msw\rcdefs.h"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -1926,9 +1926,9 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						Description="Creating ..\..\lib\vc_dll\mswud\wx\msw\rcdefs.h"
-						CommandLine="cl /EP /nologo &quot;$(InputPath)&quot; &gt; &quot;..\..\lib\vc_dll\mswud\wx\msw\rcdefs.h&quot;&#x0D;&#x0A;"
-						Outputs="..\..\lib\vc_dll\mswud\wx\msw\rcdefs.h"
+						Description="Creating ..\..\lib\vc_dll\$(PlatformName)\mswud\wx\msw\rcdefs.h"
+						CommandLine="cl /EP /nologo &quot;$(InputPath)&quot; &gt; &quot;..\..\lib\vc_dll\$(PlatformName)\mswud\wx\msw\rcdefs.h&quot;&#x0D;&#x0A;"
+						Outputs="..\..\lib\vc_dll\$(PlatformName)\mswud\wx\msw\rcdefs.h"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -1936,9 +1936,9 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						Description="Creating ..\..\lib\vc_lib\mswud\wx\msw\rcdefs.h"
-						CommandLine="cl /EP /nologo &quot;$(InputPath)&quot; &gt; &quot;..\..\lib\vc_lib\mswud\wx\msw\rcdefs.h&quot;&#x0D;&#x0A;"
-						Outputs="..\..\lib\vc_lib\mswud\wx\msw\rcdefs.h"
+						Description="Creating ..\..\lib\vc_lib\$(PlatformName)\mswud\wx\msw\rcdefs.h"
+						CommandLine="cl /EP /nologo &quot;$(InputPath)&quot; &gt; &quot;..\..\lib\vc_lib\$(PlatformName)\mswud\wx\msw\rcdefs.h&quot;&#x0D;&#x0A;"
+						Outputs="..\..\lib\vc_lib\$(PlatformName)\mswud\wx\msw\rcdefs.h"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -1946,9 +1946,9 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						Description="Creating ..\..\lib\vc_dll\mswd\wx\msw\rcdefs.h"
-						CommandLine="cl /EP /nologo &quot;$(InputPath)&quot; &gt; &quot;..\..\lib\vc_dll\mswd\wx\msw\rcdefs.h&quot;&#x0D;&#x0A;"
-						Outputs="..\..\lib\vc_dll\mswd\wx\msw\rcdefs.h"
+						Description="Creating ..\..\lib\vc_dll\$(PlatformName)\mswd\wx\msw\rcdefs.h"
+						CommandLine="cl /EP /nologo &quot;$(InputPath)&quot; &gt; &quot;..\..\lib\vc_dll\$(PlatformName)\mswd\wx\msw\rcdefs.h&quot;&#x0D;&#x0A;"
+						Outputs="..\..\lib\vc_dll\$(PlatformName)\mswd\wx\msw\rcdefs.h"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -1956,9 +1956,9 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						Description="Creating ..\..\lib\vc_lib\mswd\wx\msw\rcdefs.h"
-						CommandLine="cl /EP /nologo &quot;$(InputPath)&quot; &gt; &quot;..\..\lib\vc_lib\mswd\wx\msw\rcdefs.h&quot;&#x0D;&#x0A;"
-						Outputs="..\..\lib\vc_lib\mswd\wx\msw\rcdefs.h"
+						Description="Creating ..\..\lib\vc_lib\$(PlatformName)\mswd\wx\msw\rcdefs.h"
+						CommandLine="cl /EP /nologo &quot;$(InputPath)&quot; &gt; &quot;..\..\lib\vc_lib\$(PlatformName)\mswd\wx\msw\rcdefs.h&quot;&#x0D;&#x0A;"
+						Outputs="..\..\lib\vc_lib\$(PlatformName)\mswd\wx\msw\rcdefs.h"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -1966,9 +1966,9 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						Description="Creating ..\..\lib\vc_dll\mswunivud\wx\msw\rcdefs.h"
-						CommandLine="cl /EP /nologo &quot;$(InputPath)&quot; &gt; &quot;..\..\lib\vc_dll\mswunivud\wx\msw\rcdefs.h&quot;&#x0D;&#x0A;"
-						Outputs="..\..\lib\vc_dll\mswunivud\wx\msw\rcdefs.h"
+						Description="Creating ..\..\lib\vc_dll\$(PlatformName)\mswunivud\wx\msw\rcdefs.h"
+						CommandLine="cl /EP /nologo &quot;$(InputPath)&quot; &gt; &quot;..\..\lib\vc_dll\$(PlatformName)\mswunivud\wx\msw\rcdefs.h&quot;&#x0D;&#x0A;"
+						Outputs="..\..\lib\vc_dll\$(PlatformName)\mswunivud\wx\msw\rcdefs.h"
 					/>
 				</FileConfiguration>
 			</File>
@@ -1980,9 +1980,9 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						Description="Creating ..\..\lib\vc_lib\mswu\wx\setup.h"
-						CommandLine="copy &quot;$(InputPath)&quot; ..\..\lib\vc_lib\mswu\wx\setup.h&#x0D;&#x0A;"
-						Outputs="..\..\lib\vc_lib\mswu\wx\setup.h"
+						Description="Creating ..\..\lib\vc_lib\$(PlatformName)\mswu\wx\setup.h"
+						CommandLine="copy &quot;$(InputPath)&quot; ..\..\lib\vc_lib\$(PlatformName)\mswu\wx\setup.h&#x0D;&#x0A;"
+						Outputs="..\..\lib\vc_lib\$(PlatformName)\mswu\wx\setup.h"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -1990,9 +1990,9 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						Description="Creating ..\..\lib\vc_dll\msw\wx\setup.h"
-						CommandLine="copy &quot;$(InputPath)&quot; ..\..\lib\vc_dll\msw\wx\setup.h&#x0D;&#x0A;"
-						Outputs="..\..\lib\vc_dll\msw\wx\setup.h"
+						Description="Creating ..\..\lib\vc_dll\$(PlatformName)\msw\wx\setup.h"
+						CommandLine="copy &quot;$(InputPath)&quot; ..\..\lib\vc_dll\$(PlatformName)\msw\wx\setup.h&#x0D;&#x0A;"
+						Outputs="..\..\lib\vc_dll\$(PlatformName)\msw\wx\setup.h"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -2000,9 +2000,9 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						Description="Creating ..\..\lib\vc_lib\msw\wx\setup.h"
-						CommandLine="copy &quot;$(InputPath)&quot; ..\..\lib\vc_lib\msw\wx\setup.h&#x0D;&#x0A;"
-						Outputs="..\..\lib\vc_lib\msw\wx\setup.h"
+						Description="Creating ..\..\lib\vc_lib\$(PlatformName)\msw\wx\setup.h"
+						CommandLine="copy &quot;$(InputPath)&quot; ..\..\lib\vc_lib\$(PlatformName)\msw\wx\setup.h&#x0D;&#x0A;"
+						Outputs="..\..\lib\vc_lib\$(PlatformName)\msw\wx\setup.h"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -2010,9 +2010,9 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						Description="Creating ..\..\lib\vc_dll\mswu\wx\setup.h"
-						CommandLine="copy &quot;$(InputPath)&quot; ..\..\lib\vc_dll\mswu\wx\setup.h&#x0D;&#x0A;"
-						Outputs="..\..\lib\vc_dll\mswu\wx\setup.h"
+						Description="Creating ..\..\lib\vc_dll\$(PlatformName)\mswu\wx\setup.h"
+						CommandLine="copy &quot;$(InputPath)&quot; ..\..\lib\vc_dll\$(PlatformName)\mswu\wx\setup.h&#x0D;&#x0A;"
+						Outputs="..\..\lib\vc_dll\$(PlatformName)\mswu\wx\setup.h"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -2020,9 +2020,9 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						Description="Creating ..\..\lib\vc_dll\mswud\wx\setup.h"
-						CommandLine="copy &quot;$(InputPath)&quot; ..\..\lib\vc_dll\mswud\wx\setup.h&#x0D;&#x0A;"
-						Outputs="..\..\lib\vc_dll\mswud\wx\setup.h"
+						Description="Creating ..\..\lib\vc_dll\$(PlatformName)\mswud\wx\setup.h"
+						CommandLine="copy &quot;$(InputPath)&quot; ..\..\lib\vc_dll\$(PlatformName)\mswud\wx\setup.h&#x0D;&#x0A;"
+						Outputs="..\..\lib\vc_dll\$(PlatformName)\mswud\wx\setup.h"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -2030,9 +2030,9 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						Description="Creating ..\..\lib\vc_lib\mswud\wx\setup.h"
-						CommandLine="copy &quot;$(InputPath)&quot; ..\..\lib\vc_lib\mswud\wx\setup.h&#x0D;&#x0A;"
-						Outputs="..\..\lib\vc_lib\mswud\wx\setup.h"
+						Description="Creating ..\..\lib\vc_lib\$(PlatformName)\mswud\wx\setup.h"
+						CommandLine="copy &quot;$(InputPath)&quot; ..\..\lib\vc_lib\$(PlatformName)\mswud\wx\setup.h&#x0D;&#x0A;"
+						Outputs="..\..\lib\vc_lib\$(PlatformName)\mswud\wx\setup.h"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -2040,9 +2040,9 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						Description="Creating ..\..\lib\vc_dll\mswd\wx\setup.h"
-						CommandLine="copy &quot;$(InputPath)&quot; ..\..\lib\vc_dll\mswd\wx\setup.h&#x0D;&#x0A;"
-						Outputs="..\..\lib\vc_dll\mswd\wx\setup.h"
+						Description="Creating ..\..\lib\vc_dll\$(PlatformName)\mswd\wx\setup.h"
+						CommandLine="copy &quot;$(InputPath)&quot; ..\..\lib\vc_dll\$(PlatformName)\mswd\wx\setup.h&#x0D;&#x0A;"
+						Outputs="..\..\lib\vc_dll\$(PlatformName)\mswd\wx\setup.h"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -2050,9 +2050,9 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						Description="Creating ..\..\lib\vc_lib\mswd\wx\setup.h"
-						CommandLine="copy &quot;$(InputPath)&quot; ..\..\lib\vc_lib\mswd\wx\setup.h&#x0D;&#x0A;"
-						Outputs="..\..\lib\vc_lib\mswd\wx\setup.h"
+						Description="Creating ..\..\lib\vc_lib\$(PlatformName)\mswd\wx\setup.h"
+						CommandLine="copy &quot;$(InputPath)&quot; ..\..\lib\vc_lib\$(PlatformName)\mswd\wx\setup.h&#x0D;&#x0A;"
+						Outputs="..\..\lib\vc_lib\$(PlatformName)\mswd\wx\setup.h"
 					/>
 				</FileConfiguration>
 			</File>
@@ -2064,9 +2064,9 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						Description="Creating ..\..\lib\vc_lib\mswuniv\wx\setup.h"
-						CommandLine="copy &quot;$(InputPath)&quot; ..\..\lib\vc_lib\mswuniv\wx\setup.h&#x0D;&#x0A;"
-						Outputs="..\..\lib\vc_lib\mswuniv\wx\setup.h"
+						Description="Creating ..\..\lib\vc_lib\$(PlatformName)\mswuniv\wx\setup.h"
+						CommandLine="copy &quot;$(InputPath)&quot; ..\..\lib\vc_lib\$(PlatformName)\mswuniv\wx\setup.h&#x0D;&#x0A;"
+						Outputs="..\..\lib\vc_lib\$(PlatformName)\mswuniv\wx\setup.h"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -2074,9 +2074,9 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						Description="Creating ..\..\lib\vc_lib\mswunivu\wx\setup.h"
-						CommandLine="copy &quot;$(InputPath)&quot; ..\..\lib\vc_lib\mswunivu\wx\setup.h&#x0D;&#x0A;"
-						Outputs="..\..\lib\vc_lib\mswunivu\wx\setup.h"
+						Description="Creating ..\..\lib\vc_lib\$(PlatformName)\mswunivu\wx\setup.h"
+						CommandLine="copy &quot;$(InputPath)&quot; ..\..\lib\vc_lib\$(PlatformName)\mswunivu\wx\setup.h&#x0D;&#x0A;"
+						Outputs="..\..\lib\vc_lib\$(PlatformName)\mswunivu\wx\setup.h"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -2084,9 +2084,9 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						Description="Creating ..\..\lib\vc_dll\mswunivd\wx\setup.h"
-						CommandLine="copy &quot;$(InputPath)&quot; ..\..\lib\vc_dll\mswunivd\wx\setup.h&#x0D;&#x0A;"
-						Outputs="..\..\lib\vc_dll\mswunivd\wx\setup.h"
+						Description="Creating ..\..\lib\vc_dll\$(PlatformName)\mswunivd\wx\setup.h"
+						CommandLine="copy &quot;$(InputPath)&quot; ..\..\lib\vc_dll\$(PlatformName)\mswunivd\wx\setup.h&#x0D;&#x0A;"
+						Outputs="..\..\lib\vc_dll\$(PlatformName)\mswunivd\wx\setup.h"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -2094,9 +2094,9 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						Description="Creating ..\..\lib\vc_dll\mswuniv\wx\setup.h"
-						CommandLine="copy &quot;$(InputPath)&quot; ..\..\lib\vc_dll\mswuniv\wx\setup.h&#x0D;&#x0A;"
-						Outputs="..\..\lib\vc_dll\mswuniv\wx\setup.h"
+						Description="Creating ..\..\lib\vc_dll\$(PlatformName)\mswuniv\wx\setup.h"
+						CommandLine="copy &quot;$(InputPath)&quot; ..\..\lib\vc_dll\$(PlatformName)\mswuniv\wx\setup.h&#x0D;&#x0A;"
+						Outputs="..\..\lib\vc_dll\$(PlatformName)\mswuniv\wx\setup.h"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -2104,9 +2104,9 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						Description="Creating ..\..\lib\vc_dll\mswunivu\wx\setup.h"
-						CommandLine="copy &quot;$(InputPath)&quot; ..\..\lib\vc_dll\mswunivu\wx\setup.h&#x0D;&#x0A;"
-						Outputs="..\..\lib\vc_dll\mswunivu\wx\setup.h"
+						Description="Creating ..\..\lib\vc_dll\$(PlatformName)\mswunivu\wx\setup.h"
+						CommandLine="copy &quot;$(InputPath)&quot; ..\..\lib\vc_dll\$(PlatformName)\mswunivu\wx\setup.h&#x0D;&#x0A;"
+						Outputs="..\..\lib\vc_dll\$(PlatformName)\mswunivu\wx\setup.h"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -2114,9 +2114,9 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						Description="Creating ..\..\lib\vc_lib\mswunivud\wx\setup.h"
-						CommandLine="copy &quot;$(InputPath)&quot; ..\..\lib\vc_lib\mswunivud\wx\setup.h&#x0D;&#x0A;"
-						Outputs="..\..\lib\vc_lib\mswunivud\wx\setup.h"
+						Description="Creating ..\..\lib\vc_lib\$(PlatformName)\mswunivud\wx\setup.h"
+						CommandLine="copy &quot;$(InputPath)&quot; ..\..\lib\vc_lib\$(PlatformName)\mswunivud\wx\setup.h&#x0D;&#x0A;"
+						Outputs="..\..\lib\vc_lib\$(PlatformName)\mswunivud\wx\setup.h"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -2124,9 +2124,9 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						Description="Creating ..\..\lib\vc_lib\mswunivd\wx\setup.h"
-						CommandLine="copy &quot;$(InputPath)&quot; ..\..\lib\vc_lib\mswunivd\wx\setup.h&#x0D;&#x0A;"
-						Outputs="..\..\lib\vc_lib\mswunivd\wx\setup.h"
+						Description="Creating ..\..\lib\vc_lib\$(PlatformName)\mswunivd\wx\setup.h"
+						CommandLine="copy &quot;$(InputPath)&quot; ..\..\lib\vc_lib\$(PlatformName)\mswunivd\wx\setup.h&#x0D;&#x0A;"
+						Outputs="..\..\lib\vc_lib\$(PlatformName)\mswunivd\wx\setup.h"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -2134,9 +2134,9 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						Description="Creating ..\..\lib\vc_dll\mswunivud\wx\setup.h"
-						CommandLine="copy &quot;$(InputPath)&quot; ..\..\lib\vc_dll\mswunivud\wx\setup.h&#x0D;&#x0A;"
-						Outputs="..\..\lib\vc_dll\mswunivud\wx\setup.h"
+						Description="Creating ..\..\lib\vc_dll\$(PlatformName)\mswunivud\wx\setup.h"
+						CommandLine="copy &quot;$(InputPath)&quot; ..\..\lib\vc_dll\$(PlatformName)\mswunivud\wx\setup.h&#x0D;&#x0A;"
+						Outputs="..\..\lib\vc_dll\$(PlatformName)\mswunivud\wx\setup.h"
 					/>
 				</FileConfiguration>
 			</File>

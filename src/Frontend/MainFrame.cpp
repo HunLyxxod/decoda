@@ -196,7 +196,9 @@ BEGIN_EVENT_TABLE(MainFrame, wxFrame)
     // Help menu events.
     EVT_MENU(ID_HelpAbout,                          MainFrame::OnHelpAbout)
     EVT_MENU(ID_HelpSupport,                        MainFrame::OnHelpSupport)
+#ifdef _X86_
     EVT_MENU(ID_HelpCheckForUpdate,                 MainFrame::OnHelpCheckForUpdate)
+#endif
     EVT_MENU(ID_HelpContents,                       MainFrame::OnHelpContents)
 
     // Notebook tab context menu events.
@@ -1682,11 +1684,13 @@ void MainFrame::OnHelpContents(wxCommandEvent& WXUNUSED(event))
     m_helpController.DisplayContents();
 }
 
+#ifdef _X86_
 void MainFrame::OnHelpCheckForUpdate(wxCommandEvent& event)
 {
     m_updater.CheckForUpdates(s_updateUrl, MainApp::s_buildNumber, GetHandle());
     HandleUpdate();
 }
+#endif
 
 void MainFrame::OnHelpAbout(wxCommandEvent& WXUNUSED(event))
 {
@@ -4078,6 +4082,7 @@ wxXmlNode* MainFrame::SaveExternalTool(const ExternalTool* tool) const
 
 }
 
+#ifdef _X86_
 void MainFrame::CheckForUpdate()
 {
 
@@ -4098,6 +4103,7 @@ void MainFrame::CheckForUpdate()
 #endif
 
 }
+#endif
 
 bool MainFrame::SaveProject(bool promptForName)
 {
@@ -5166,7 +5172,9 @@ void MainFrame::OnShowHelp(wxCommandEvent& event)
 
 void MainFrame::OnUpdateInfo(wxCommandEvent& event)
 {
+#ifdef _X86_
     HandleUpdate();
+#endif
 }
 
 void MainFrame::GetProjectSelectedFileNames(std::vector<std::string>& fileNames) const
@@ -5831,6 +5839,7 @@ void MainFrame::UpdateDocumentReadOnlyStatus()
 
 }
 
+#ifdef _X86_
 void MainFrame::UpdateCallback(Updater* updater, void* param)
 {
 
@@ -5862,6 +5871,7 @@ void MainFrame::HandleUpdate()
     }
 
 }
+#endif
 
 void MainFrame::UpdateSyntaxColoring(OpenFile* openFile)
 {

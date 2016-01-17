@@ -2,3 +2,10 @@ build/*
 bin/*
 install/output/*
 docs/output/*
+libs/intermediate/*
+libs/wxScintilla/build/x64/*
+libs/wxWidgets/build/msw/ipch/*
+libs/wxWidgets/build/msw/vc_msw/*
+libs/wxWidgets/build/msw/vc_mswd/*
+*.suo
+*.sdf

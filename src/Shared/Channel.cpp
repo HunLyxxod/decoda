@@ -189,7 +189,7 @@ bool Channel::WriteString(const char* value)
 
 bool Channel::WriteString(const std::string& value)
 {
-    unsigned int length = value.length();
+    unsigned int length = static_cast<unsigned int>(value.length());
     if (!WriteUInt32(length))
     {
         return false;

@@ -380,6 +380,10 @@ struct CPCallHandlerArgs
     void*                       data;
 };
 
+#ifdef _X86_
+
+#define INTERCEPT_DECL          __declspec(naked)
+
 /**
  * This macro outputs the prolog code for a naked intercept function. It
  * should be the first code in the function.
@@ -431,6 +435,15 @@ struct CPCallHandlerArgs
     __asm stdcall_ret:                              \
         __asm ret     (4 + argsSize)                \
     }
+
+#else
+
+#define INTERCEPT_DECL
+#define INTERCEPT_PROLOG()
+#define INTERCEPT_EPILOG(argsSize)              return result;
+#define INTERCEPT_EPILOG_NO_RETURN(argsSize)
+
+#endif
 
 
 LoadLibraryExW_t                LoadLibraryExW_dll      = NULL;
@@ -524,7 +537,7 @@ int DecodaOutputWorker(unsigned long api, lua_State* L, bool& stdcall)
 }
 #pragma auto_inline()
 
-__declspec(naked) int DecodaOutput(unsigned long api, lua_State* L)
+INTERCEPT_DECL int DecodaOutput(unsigned long api, lua_State* L)
 {
 
     int result;
@@ -554,7 +567,7 @@ int CPCallHandlerWorker(unsigned long api, lua_State* L, bool& stdcall)
 }
 #pragma auto_inline()
 
-__declspec(naked) int CPCallHandler(unsigned long api, lua_State* L)
+INTERCEPT_DECL int CPCallHandler(unsigned long api, lua_State* L)
 {
 
     int result;
@@ -590,7 +603,7 @@ void HookHandlerWorker(unsigned long api, lua_State* L, lua_Debug* ar,  bool& st
 }
 #pragma auto_inline()
 
-__declspec(naked) void HookHandler(unsigned long api, lua_State* L, lua_Debug* ar)
+INTERCEPT_DECL void HookHandler(unsigned long api, lua_State* L, lua_Debug* ar)
 {
 
     bool stdcall;
@@ -1533,7 +1546,7 @@ int lua_toboolean_dll(unsigned long api, lua_State* L, int index)
     }
 }
 
-int lua_tointeger_dll(unsigned long api, lua_State* L, int index)
+lua_Integer lua_tointeger_dll(unsigned long api, lua_State* L, int index)
 {
     if (g_interfaces[api].lua_tointegerx_dll_cdecl != NULL ||
         g_interfaces[api].lua_tointegerx_dll_stdcall != NULL)
@@ -1564,7 +1577,7 @@ int lua_tointeger_dll(unsigned long api, lua_State* L, int index)
     else
     {
         // On Lua 4.0 fallback to lua_tonumber.
-        return static_cast<int>(lua_tonumber_dll(api, L, index));
+        return static_cast<lua_Integer>(lua_tonumber_dll(api, L, index));
     }
 }
 
@@ -2140,6 +2153,7 @@ void FinishLoadingLua(unsigned long api, bool stdcall)
 void lua_call_worker(unsigned long api, lua_State* L, int nargs, int nresults, bool& stdcall)
 {
 
+#ifdef _X86_
     if (!g_interfaces[api].finishedLoading)
     {
         
@@ -2151,6 +2165,7 @@ void lua_call_worker(unsigned long api, lua_State* L, int nargs, int nresults, b
     
     }
     else
+#endif
     {
 
         DebugBackend::Get().AttachState(api, L);
@@ -2181,7 +2196,7 @@ void lua_call_worker(unsigned long api, lua_State* L, int nargs, int nresults, b
 
 // This function cannot be called like a normal function. It changes its
 // calling convention at run-time and removes and extra argument from the stack.
-__declspec(naked) void lua_call_intercept(unsigned long api, lua_State* L, int nargs, int nresults)
+INTERCEPT_DECL void lua_call_intercept(unsigned long api, lua_State* L, int nargs, int nresults)
 {
     
     bool stdcall;
@@ -2201,6 +2216,7 @@ __declspec(naked) void lua_call_intercept(unsigned long api, lua_State* L, int n
 void lua_callk_worker(unsigned long api, lua_State* L, int nargs, int nresults, int ctk, lua_CFunction k, bool& stdcall)
 {
 
+#ifdef _X86_
     if (!g_interfaces[api].finishedLoading)
     {
         
@@ -2212,6 +2228,7 @@ void lua_callk_worker(unsigned long api, lua_State* L, int nargs, int nresults, 
     
     }
     else
+#endif
     {
 
         DebugBackend::Get().AttachState(api, L);
@@ -2242,7 +2259,7 @@ void lua_callk_worker(unsigned long api, lua_State* L, int nargs, int nresults, 
 
 // This function cannot be called like a normal function. It changes its
 // calling convention at run-time and removes and extra argument from the stack.
-__declspec(naked) void lua_callk_intercept(unsigned long api, lua_State* L, int nargs, int nresults, int ctx, lua_CFunction k)
+INTERCEPT_DECL void lua_callk_intercept(unsigned long api, lua_State* L, int nargs, int nresults, int ctx, lua_CFunction k)
 {
     
     bool stdcall;
@@ -2265,6 +2282,7 @@ int lua_pcall_worker(unsigned long api, lua_State* L, int nargs, int nresults, i
 
     int result;
 
+#ifdef _X86_
     if (!g_interfaces[api].finishedLoading)
     {
         
@@ -2275,6 +2293,7 @@ int lua_pcall_worker(unsigned long api, lua_State* L, int nargs, int nresults, i
     
     }
     else
+#endif
     {
 
         DebugBackend::Get().AttachState(api, L);
@@ -2311,7 +2330,7 @@ int lua_pcall_worker(unsigned long api, lua_State* L, int nargs, int nresults, i
 
 // This function cannot be called like a normal function. It changes its
 // calling convention at run-time and removes and extra argument from the stack.
-__declspec(naked) int lua_pcall_intercept(unsigned long api, lua_State* L, int nargs, int nresults, int errfunc)
+INTERCEPT_DECL int lua_pcall_intercept(unsigned long api, lua_State* L, int nargs, int nresults, int errfunc)
 {
 
     int     result;
@@ -2334,6 +2353,7 @@ int lua_pcallk_worker(unsigned long api, lua_State* L, int nargs, int nresults, 
 
     int result;
 
+#ifdef _X86_
     if (!g_interfaces[api].finishedLoading)
     {
         
@@ -2345,6 +2365,7 @@ int lua_pcallk_worker(unsigned long api, lua_State* L, int nargs, int nresults, 
     
     }
     else
+#endif
     {
 
         DebugBackend::Get().AttachState(api, L);
@@ -2381,7 +2402,7 @@ int lua_pcallk_worker(unsigned long api, lua_State* L, int nargs, int nresults, 
 
 // This function cannot be called like a normal function. It changes its
 // calling convention at run-time and removes and extra argument from the stack.
-__declspec(naked) int lua_pcallk_intercept(unsigned long api, lua_State* L, int nargs, int nresults, int errfunc, int ctx, lua_CFunction k)
+INTERCEPT_DECL int lua_pcallk_intercept(unsigned long api, lua_State* L, int nargs, int nresults, int errfunc, int ctx, lua_CFunction k)
 {
 
     int     result;
@@ -2404,12 +2425,15 @@ lua_State* lua_newstate_worker(unsigned long api, lua_Alloc f, void* ud, bool& s
 
     lua_State* result = NULL;
 
+#ifdef _X86_
     if (!g_interfaces[api].finishedLoading)
     {
         stdcall = GetIsStdCallConvention( g_interfaces[api].lua_newstate_dll_cdecl, (void*)f, ud, (void**)&result);
         FinishLoadingLua(api, stdcall);
     }
-    else if (g_interfaces[api].lua_newstate_dll_cdecl != NULL)
+    else
+#endif
+    if (g_interfaces[api].lua_newstate_dll_cdecl != NULL)
     {
         result = g_interfaces[api].lua_newstate_dll_cdecl(f, ud);
         stdcall = false;
@@ -2432,7 +2456,7 @@ lua_State* lua_newstate_worker(unsigned long api, lua_Alloc f, void* ud, bool& s
 
 // This function cannot be called like a normal function. It changes its
 // calling convention at run-time and removes and extra argument from the stack.
-__declspec(naked) lua_State* lua_newstate_intercept(unsigned long api, lua_Alloc f, void* ud)
+INTERCEPT_DECL lua_State* lua_newstate_intercept(unsigned long api, lua_Alloc f, void* ud)
 {
 
     lua_State*      result;
@@ -2455,12 +2479,15 @@ lua_State* lua_newthread_worker(unsigned long api, lua_State* L, bool& stdcall)
     
     lua_State* result = NULL;
 
+#ifdef _X86_
     if (!g_interfaces[api].finishedLoading)
     {
         stdcall = GetIsStdCallConvention( g_interfaces[api].lua_newthread_dll_cdecl, L, (void**)&result);
         FinishLoadingLua(api, stdcall);
     }
-    else if (g_interfaces[api].lua_newthread_dll_cdecl != NULL)
+    else
+#endif
+    if (g_interfaces[api].lua_newthread_dll_cdecl != NULL)
     {
         result = g_interfaces[api].lua_newthread_dll_cdecl(L);
         stdcall = false;
@@ -2483,7 +2510,7 @@ lua_State* lua_newthread_worker(unsigned long api, lua_State* L, bool& stdcall)
 
 // This function cannot be called like a normal function. It changes its
 // calling convention at run-time and removes and extra argument from the stack.
-__declspec(naked) lua_State* lua_newthread_intercept(unsigned long api, lua_State* L)
+INTERCEPT_DECL lua_State* lua_newthread_intercept(unsigned long api, lua_State* L)
 {
 
     lua_State*      result;
@@ -2506,12 +2533,15 @@ lua_State* lua_open_worker(unsigned long api, int stacksize, bool& stdcall)
 
     lua_State* result = NULL;
 
+#ifdef _X86_
     if (!g_interfaces[api].finishedLoading)
     {
         stdcall = GetIsStdCallConvention( g_interfaces[api].lua_open_dll_cdecl, (void*)stacksize, (void**)&result);
         FinishLoadingLua(api, stdcall);
     }
-    else if (g_interfaces[api].lua_open_dll_cdecl != NULL)
+    else 
+#endif
+    if (g_interfaces[api].lua_open_dll_cdecl != NULL)
     {
         result = g_interfaces[api].lua_open_dll_cdecl(stacksize);
         stdcall = false;
@@ -2538,6 +2568,7 @@ lua_State* lua_open_500_worker(unsigned long api, bool& stdcall)
 
     lua_State* result = NULL;
 
+#ifdef _X86_
     if (!g_interfaces[api].finishedLoading)
     {
 
@@ -2550,6 +2581,7 @@ lua_State* lua_open_500_worker(unsigned long api, bool& stdcall)
         FinishLoadingLua(api, stdcall);
 
     }
+#endif
 
     if (g_interfaces[api].lua_open_500_dll_cdecl != NULL)
     {
@@ -2574,7 +2606,7 @@ lua_State* lua_open_500_worker(unsigned long api, bool& stdcall)
 
 // This function cannot be called like a normal function. It changes its
 // calling convention at run-time and removes and extra argument from the stack.
-__declspec(naked) lua_State* lua_open_intercept(unsigned long api, int stacksize)
+INTERCEPT_DECL lua_State* lua_open_intercept(unsigned long api, int stacksize)
 {
 
     lua_State*      result;
@@ -2593,7 +2625,7 @@ __declspec(naked) lua_State* lua_open_intercept(unsigned long api, int stacksize
 
 // This function cannot be called like a normal function. It changes its
 // calling convention at run-time and removes and extra argument from the stack.
-__declspec(naked) lua_State* lua_open_500_intercept(unsigned long api)
+INTERCEPT_DECL lua_State* lua_open_500_intercept(unsigned long api)
 {
 
     lua_State*      result;
@@ -2627,7 +2659,7 @@ int lua_load_worker(unsigned long api, lua_State* L, lua_Reader reader, void* da
 
     do
     {
-
+#ifdef _X86_
         if (!g_interfaces[api].finishedLoading)
         {
             // In this case we must have attached the debugger so we're intercepting a lua_load
@@ -2635,7 +2667,9 @@ int lua_load_worker(unsigned long api, lua_State* L, lua_Reader reader, void* da
             stdcall = GetIsStdCallConvention(reader, L, data, &chunkSize, (void**)&chunk);
             FinishLoadingLua(api, stdcall);
         }
-        else if (stdcall)
+        else
+#endif
+        if (stdcall)
         {
             // We assume that since the lua_load function is stdcall the reader function is as well.
             chunk = reinterpret_cast<lua_Reader_stdcall>(reader)(L, data, &chunkSize);
@@ -2694,7 +2728,7 @@ int lua_load_worker(unsigned long api, lua_State* L, lua_Reader reader, void* da
 
 // This function cannot be called like a normal function. It changes its
 // calling convention at run-time and removes and extra argument from the stack.
-__declspec(naked) int lua_load_510_intercept(unsigned long api, lua_State* L, lua_Reader reader, void* data, const char* name)
+INTERCEPT_DECL int lua_load_510_intercept(unsigned long api, lua_State* L, lua_Reader reader, void* data, const char* name)
 {
     
     bool    stdcall;
@@ -2713,7 +2747,7 @@ __declspec(naked) int lua_load_510_intercept(unsigned long api, lua_State* L, lu
 
 // This function cannot be called like a normal function. It changes its
 // calling convention at run-time and removes and extra argument from the stack.
-__declspec(naked) int lua_load_intercept(unsigned long api, lua_State* L, lua_Reader reader, void* data, const char* name, const char* mode)
+INTERCEPT_DECL int lua_load_intercept(unsigned long api, lua_State* L, lua_Reader reader, void* data, const char* name, const char* mode)
 {
     
     bool    stdcall;
@@ -2734,12 +2768,15 @@ __declspec(naked) int lua_load_intercept(unsigned long api, lua_State* L, lua_Re
 void lua_close_worker(unsigned long api, lua_State* L, bool& stdcall)
 {
     
+#ifdef _X86_
     if (!g_interfaces[api].finishedLoading)
     {
         stdcall = GetIsStdCallConvention(g_interfaces[api].lua_close_dll_cdecl, L, NULL);
         FinishLoadingLua(api, stdcall);
     }
-    else if (g_interfaces[api].lua_close_dll_cdecl != NULL)
+    else 
+#endif
+    if (g_interfaces[api].lua_close_dll_cdecl != NULL)
     {
         g_interfaces[api].lua_close_dll_cdecl(L);
         stdcall = false;
@@ -2757,7 +2794,7 @@ void lua_close_worker(unsigned long api, lua_State* L, bool& stdcall)
 
 // This function cannot be called like a normal function. It changes its
 // calling convention at run-time and removes and extra argument from the stack.
-__declspec(naked) void lua_close_intercept(unsigned long api, lua_State* L)
+INTERCEPT_DECL void lua_close_intercept(unsigned long api, lua_State* L)
 {
     
     bool    stdcall;
@@ -2779,12 +2816,15 @@ int luaL_newmetatable_worker(unsigned long api, lua_State *L, const char* tname,
 
     int result;
 
+#ifdef _X86_
     if (!g_interfaces[api].finishedLoading)
     {
         stdcall = GetIsStdCallConvention(g_interfaces[api].luaL_newmetatable_dll_cdecl, L, (void*)tname, (void**)&result);
         FinishLoadingLua(api, stdcall);
     }
-    else if (g_interfaces[api].luaL_newmetatable_dll_cdecl != NULL)
+    else 
+#endif
+    if (g_interfaces[api].luaL_newmetatable_dll_cdecl != NULL)
     {
         result = g_interfaces[api].luaL_newmetatable_dll_cdecl(L, tname);
         stdcall = false;
@@ -2808,7 +2848,7 @@ int luaL_newmetatable_worker(unsigned long api, lua_State *L, const char* tname,
 
 // This function cannot be called like a normal function. It changes its
 // calling convention at run-time and removes and extra argument from the stack.
-__declspec(naked) int luaL_newmetatable_intercept(unsigned long api, lua_State* L, const char* tname)
+INTERCEPT_DECL int luaL_newmetatable_intercept(unsigned long api, lua_State* L, const char* tname)
 {
 
     int     result;
@@ -2834,6 +2874,7 @@ int lua_sethook_worker(unsigned long api, lua_State *L, lua_Hook f, int mask, in
         
     int result = 0;
  
+#ifdef _X86_
     if (!g_interfaces[api].finishedLoading)
     {
         stdcall = GetIsStdCallConvention(g_interfaces[api].lua_sethook_dll_cdecl, L, f, (void*)mask, (void*)count, (void**)&result);
@@ -2841,6 +2882,7 @@ int lua_sethook_worker(unsigned long api, lua_State *L, lua_Hook f, int mask, in
         DebugBackend::Get().AttachState(api, L);
     }
     else
+#endif
     {
         if (g_interfaces[api].luaL_newmetatable_dll_cdecl != NULL)
         {
@@ -2860,7 +2902,7 @@ int lua_sethook_worker(unsigned long api, lua_State *L, lua_Hook f, int mask, in
 
 // This function cannot be called like a normal function. It changes its
 // calling convention at run-time and removes and extra argument from the stack.
-__declspec(naked) int lua_sethook_intercept(unsigned long api, lua_State *L, lua_Hook f, int mask, int count)
+INTERCEPT_DECL int lua_sethook_intercept(unsigned long api, lua_State *L, lua_Hook f, int mask, int count)
 {
 
     int     result;
@@ -2883,12 +2925,15 @@ int luaL_loadbufferx_worker(unsigned long api, lua_State *L, const char *buff, s
 
     int result = 0;
 
+#ifdef _X86_
     if (!g_interfaces[api].finishedLoading)
     {
         stdcall = GetIsStdCallConvention(g_interfaces[api].luaL_loadbuffer_dll_cdecl, L, (void*)buff, (void*)sz, (void*)name, (void**)&result);
         FinishLoadingLua(api, stdcall);
     }
-    else if (g_interfaces[api].luaL_loadbufferx_dll_cdecl != NULL)
+    else 
+#endif
+    if (g_interfaces[api].luaL_loadbufferx_dll_cdecl != NULL)
     {
         result = g_interfaces[api].luaL_loadbufferx_dll_cdecl(L, buff, sz, name, mode);
         stdcall = false;
@@ -2920,7 +2965,7 @@ int luaL_loadbufferx_worker(unsigned long api, lua_State *L, const char *buff, s
 
 // This function cannot be called like a normal function. It changes its
 // calling convention at run-time and removes and extra argument from the stack.
-__declspec(naked) int luaL_loadbuffer_intercept(unsigned long api, lua_State *L, const char *buff, size_t sz, const char *name)
+INTERCEPT_DECL int luaL_loadbuffer_intercept(unsigned long api, lua_State *L, const char *buff, size_t sz, const char *name)
 {
 
     int     result;
@@ -2939,7 +2984,7 @@ __declspec(naked) int luaL_loadbuffer_intercept(unsigned long api, lua_State *L,
 
 // This function cannot be called like a normal function. It changes its
 // calling convention at run-time and removes and extra argument from the stack.
-__declspec(naked) int luaL_loadbufferx_intercept(unsigned long api, lua_State *L, const char *buff, size_t sz, const char *name, const char* mode)
+INTERCEPT_DECL int luaL_loadbufferx_intercept(unsigned long api, lua_State *L, const char *buff, size_t sz, const char *name, const char* mode)
 {
 
     int     result;
@@ -2962,12 +3007,15 @@ int luaL_loadfilex_worker(unsigned long api, lua_State *L, const char *fileName,
 
     int result = 0;
 
+#ifdef _X86_
     if (!g_interfaces[api].finishedLoading)
     {
         stdcall = GetIsStdCallConvention(g_interfaces[api].luaL_loadfile_dll_cdecl, L, (void*)fileName, (void**)&result);
         FinishLoadingLua(api, stdcall);
     }
-    else if (g_interfaces[api].luaL_loadfilex_dll_cdecl != NULL)
+    else 
+#endif
+    if (g_interfaces[api].luaL_loadfilex_dll_cdecl != NULL)
     {
         result = g_interfaces[api].luaL_loadfilex_dll_cdecl(L, fileName, mode);
         stdcall = false;
@@ -3024,7 +3072,7 @@ int luaL_loadfilex_worker(unsigned long api, lua_State *L, const char *fileName,
 
 // This function cannot be called like a normal function. It changes its
 // calling convention at run-time and removes and extra argument from the stack.
-__declspec(naked) int luaL_loadfile_intercept(unsigned long api, lua_State *L, const char *fileName)
+INTERCEPT_DECL int luaL_loadfile_intercept(unsigned long api, lua_State *L, const char *fileName)
 {
 
     int     result;
@@ -3043,7 +3091,7 @@ __declspec(naked) int luaL_loadfile_intercept(unsigned long api, lua_State *L, c
 
 // This function cannot be called like a normal function. It changes its
 // calling convention at run-time and removes and extra argument from the stack.
-__declspec(naked) int luaL_loadfilex_intercept(unsigned long api, lua_State *L, const char *fileName, const char* mode)
+INTERCEPT_DECL int luaL_loadfilex_intercept(unsigned long api, lua_State *L, const char *fileName, const char* mode)
 {
 
     int     result;
@@ -3079,11 +3127,13 @@ lua_State* luaL_newstate_worker(unsigned long api, bool& stdcall)
     // doesn't have any arguments), call another function. lua_gettop is a good
     // choice since it has no side effects.
 
+#ifdef _X86_
     if (!g_interfaces[api].finishedLoading && result != NULL)
     {
         stdcall = GetIsStdCallConvention(g_interfaces[api].lua_gettop_dll_cdecl, result, NULL);
         FinishLoadingLua(api, stdcall);
     }
+#endif
     
     if (result != NULL)
     {
@@ -3097,7 +3147,7 @@ lua_State* luaL_newstate_worker(unsigned long api, bool& stdcall)
 
 // This function cannot be called like a normal function. It changes its
 // calling convention at run-time and removes and extra argument from the stack.
-__declspec(naked) lua_State* luaL_newstate_intercept(unsigned long api)
+INTERCEPT_DECL lua_State* luaL_newstate_intercept(unsigned long api)
 {
 
     lua_State*      result;
@@ -3189,7 +3239,7 @@ bool LoadLuaFunctions(const stdext::hash_map<std::string, DWORD64>& symbols, HAN
     luaInterface.finishedLoading = false;
     luaInterface.stdcall         = false;
 
-    unsigned long api = g_interfaces.size();
+    unsigned long api = static_cast<unsigned long>(g_interfaces.size());
 
     bool report = false;
 
@@ -3414,6 +3464,10 @@ bool LoadLuaFunctions(const stdext::hash_map<std::string, DWORD64>& symbols, HAN
         g_loadedLuaFunctions = true;
     }
 
+#ifdef _X64_
+    FinishLoadingLua(api, false);
+#endif
+
     return true;
 
 }
@@ -3599,7 +3653,7 @@ BOOL CALLBACK FindSymbolsCallback(PSYMBOL_INFO pSymInfo, ULONG SymbolSize, PVOID
 bool ScanForSignature(DWORD64 start, DWORD64 length, const char* signature)
 {
 
-    unsigned int signatureLength = strlen(signature);
+    size_t signatureLength = strlen(signature);
 
     for (DWORD64 i = start; i < start + length - signatureLength; ++i)
     {
@@ -3975,7 +4029,7 @@ int CFunctionHandlerWorker(CFunctionArgs* args, lua_State* L, bool& stdcall)
 }
 #pragma auto_inline()
 
-__declspec(naked) int CFunctionHandler(CFunctionArgs* args, lua_State* L)
+INTERCEPT_DECL int CFunctionHandler(CFunctionArgs* args, lua_State* L)
 {
 
     int result;

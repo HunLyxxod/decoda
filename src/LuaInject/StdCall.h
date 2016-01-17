@@ -23,6 +23,8 @@ along with Decoda.  If not, see <http://www.gnu.org/licenses/>.
 #ifndef STDCALL_H
 #define STDCALL_H
 
+#ifdef _X86_
+
 #pragma runtime_checks( "[runtime_checks]", off )
 
 /**
@@ -68,5 +70,7 @@ bool GetIsStdCallConvention(void* function, void* arg1, void* arg2, void* arg3, 
 bool GetIsStdCallConvention(void* function, void* arg1, void* arg2, void* arg3, void* arg4, void* arg5, void* arg6, void** result);
 
 #pragma runtime_checks( "[runtime_checks]", restore )
+
+#endif
 
 #endif

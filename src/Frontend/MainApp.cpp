@@ -23,8 +23,10 @@ along with Decoda.  If not, see <http://www.gnu.org/licenses/>.
 #include "MainApp.h"
 #include "MainFrame.h"
 #include "SingleInstance.h"
+#ifdef _X86_
 #include "CrashHandler.h"
 #include "Report.h"
+#endif
 #include "Config.h"
 
 #include <sstream>
@@ -62,12 +64,12 @@ std::string UrlEncode(const std::string& string)
 
 }
 
+#ifdef _X86_
 /**
  * Called when the application crashes.
  */
 void CrashCallback(void* address)
 {
-
     extern const unsigned int g_buildNumber;
 
     Report report;
@@ -86,12 +88,14 @@ void CrashCallback(void* address)
         report.Submit(serverAddress, NULL);
     
     }
-
 }
+#endif
 
 MainApp::MainApp()
 {
+#ifdef _X86_
     CrashHandler::SetCallback( CrashCallback );
+#endif
 }
 
 bool MainApp::OnInit()
@@ -161,7 +165,9 @@ bool MainApp::OnInit()
     m_loadProjectName.Clear();
     m_loadFileNames.Clear();
 
+#ifdef _X86_
     frame->CheckForUpdate();
+#endif
 
     if (!m_debugExe.IsEmpty())
     {

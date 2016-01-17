@@ -67,7 +67,7 @@ void            lua_pushglobaltable_dll (unsigned long api, lua_State *L);
 const char*     lua_tostring_dll        (unsigned long api, lua_State*, int);
 const char*     lua_tolstring_dll       (unsigned long api, lua_State*, int, size_t* len);
 int             lua_toboolean_dll       (unsigned long api, lua_State*, int);
-int             lua_tointeger_dll       (unsigned long api, lua_State*, int);
+lua_Integer     lua_tointeger_dll       (unsigned long api, lua_State*, int);
 lua_CFunction   lua_tocfunction_dll     (unsigned long api, lua_State*, int);
 lua_Number      lua_tonumber_dll        (unsigned long api, lua_State*, int);
 void*           lua_touserdata_dll      (unsigned long api, lua_State* L, int index);

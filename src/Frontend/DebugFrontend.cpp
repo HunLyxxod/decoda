@@ -527,7 +527,7 @@ void DebugFrontend::EventThreadProc()
             // file bad.
             script->name = MakeValidFileName(script->name);
 
-            unsigned int scriptIndex = m_scripts.size();
+            unsigned int scriptIndex = static_cast<unsigned int>(m_scripts.size());
             m_scripts.push_back(script);
         
             event.SetScriptIndex(scriptIndex);
@@ -779,7 +779,7 @@ unsigned int DebugFrontend::GetScriptIndex(const char* name) const
 
 unsigned int DebugFrontend::GetNumStackFrames() const
 {
-    return m_stackFrames.size();
+    return static_cast<unsigned int>(m_stackFrames.size());
 }
 
 const DebugFrontend::StackFrame& DebugFrontend::GetStackFrame(unsigned int i) const
@@ -961,7 +961,7 @@ char* DebugFrontend::RemoteStrDup(HANDLE process, const char* string)
     size_t length = strlen(string) + 1;
     void* remoteString = VirtualAllocEx(process, NULL, length, MEM_COMMIT, PAGE_READWRITE);
 
-    DWORD numBytesWritten;
+    SIZE_T numBytesWritten;
     WriteProcessMemory(process, remoteString, string, length, &numBytesWritten);
 
     return static_cast<char*>(remoteString);
@@ -1034,7 +1034,7 @@ void DebugFrontend::SetBreakpoint(HANDLE hProcess, LPVOID entryPoint, bool set, 
         if (set)
         {
 
-            DWORD numBytesRead;
+            SIZE_T numBytesRead;
             ReadProcessMemory(hProcess, entryPoint, data, 1, &numBytesRead);
 
             // Write the int 3 instruction.
@@ -1047,7 +1047,7 @@ void DebugFrontend::SetBreakpoint(HANDLE hProcess, LPVOID entryPoint, bool set, 
             buffer[0] = data[0];
         }
 
-        DWORD numBytesWritten;
+        SIZE_T numBytesWritten;
         WriteProcessMemory(hProcess, entryPoint, buffer, 1, &numBytesWritten);
 
         // Restore the original protections.
@@ -1073,11 +1073,19 @@ bool DebugFrontend::StartProcessAndRunToEntry(LPCSTR exeFileName, LPSTR commandL
         return false;
     }
 
+#ifdef _X86_
     if (!info.i386)
     {
         MessageEvent("Error: Debugging 64-bit applications is not supported", MessageType_Error);
         return false;
     }
+#else
+    if(info.i386)
+    {
+        MessageEvent("Error: Debugging 32-bit applications is not supported", MessageType_Error);
+        return false;
+    }
+#endif
 
     DWORD flags = DEBUG_PROCESS | DEBUG_ONLY_THIS_PROCESS;
 
@@ -1093,7 +1101,7 @@ bool DebugFrontend::StartProcessAndRunToEntry(LPCSTR exeFileName, LPSTR commandL
     if (!info.managed)
     {
 
-        unsigned long entryPoint = info.entryPoint;
+        size_t entryPoint = info.entryPoint;
 
         BYTE breakPointData;
         bool done = false;
@@ -1117,7 +1125,11 @@ bool DebugFrontend::StartProcessAndRunToEntry(LPCSTR exeFileName, LPSTR commandL
 
                     GetThreadContext(processInfo.hThread, &context);
 
-                    if (context.Eip == entryPoint + 1)
+#ifdef _X86_
+                    if (--context.Eip == entryPoint)
+#else
+                    if (--context.Rip == entryPoint)
+#endif
                     {
 
                         // Restore the original code bytes.
@@ -1125,7 +1137,6 @@ bool DebugFrontend::StartProcessAndRunToEntry(LPCSTR exeFileName, LPSTR commandL
                         done = true;
 
                         // Backup the instruction pointer so that we execute the original instruction.
-                        --context.Eip;
                         SetThreadContext(processInfo.hThread, &context);
 
                         // Suspend the thread before we continue the debug event so that the program

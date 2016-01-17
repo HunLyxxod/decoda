@@ -42,7 +42,9 @@ along with Decoda.  If not, see <http://www.gnu.org/licenses/>.
 #include "SystemSettings.h"
 #include "SourceControl.h"
 #include "FileChangeWatcher.h"
+#ifdef _X86_
 #include "Updater.h"
+#endif
 #include "StringHistory.h"
 #include "AutoCompleteManager.h"
 #include "DebugFrontend.h"
@@ -412,10 +414,12 @@ public:
      */
     void OnHelpContents(wxCommandEvent& event);
 
+#ifdef _X86
     /**
      * Called when the user selects Help/Check For Update from the menu.
      */
     void OnHelpCheckForUpdate(wxCommandEvent& event);
+#endif
 
     /**
      * Called when the user selects a menu item that isn't handled elswewhere. This is used
@@ -857,11 +861,13 @@ public:
      */
     virtual bool MSWProcessMessage(WXMSG* pMsg);
 
+#ifdef _X86_
     /**
      * Talks to the mothership to see if there's an updated version of the
      * application available. This is done asynchronously.
      */
     void CheckForUpdate();
+#endif
 
     /**
      * Moves the window and shows it based on the saved window placement.
@@ -1270,6 +1276,7 @@ private:
      */
     void UpdateDocumentReadOnlyStatus();
 
+#ifdef _X86_
     /**
      * Callback used to notify the application when information about updates
      * available is ready.
@@ -1281,6 +1288,7 @@ private:
      * the method does nothing.
      */
     void HandleUpdate();
+#endif
 
     /**
      * Updates the syntax coloring for the file based on the file name extension.
@@ -1414,7 +1422,9 @@ private:
         ID_EditComment                      = 61,
         ID_EditUncomment                    = 62,
         ID_HelpContents                     = 63,
+#ifdef _X86_
         ID_HelpCheckForUpdate               = 64,
+#endif
         ID_DebugStartWithoutDebugging       = 65,
         ID_DebugProcess                     = 66,
         // 67 was help/register
@@ -1458,7 +1468,9 @@ private:
  
     int                             m_openFilesMessage;
 
+#ifdef _X86_
     Updater                         m_updater;
+#endif
 
     Project*                        m_project;       
     std::vector<OpenFile*>          m_openFiles;
