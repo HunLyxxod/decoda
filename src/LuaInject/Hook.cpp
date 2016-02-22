@@ -50,6 +50,7 @@ size_t GetInstructionSize(void* address, unsigned char* opcodeOut = NULL, int* o
     if (*func != 0xCC) 
     { 
         // Skip prefixes F0h, F2h, F3h, 66h, 67h, D8h-DFh, 2Eh, 36h, 3Eh, 26h, 64h and 65h
+        // Skip prefixes 4Xh in 64 bits mode
         int operandSize = 4; 
         int FPU = 0; 
         while(*func == 0xF0 || 
@@ -57,7 +58,11 @@ size_t GetInstructionSize(void* address, unsigned char* opcodeOut = NULL, int* o
               *func == 0xF3 || 
              (*func & 0xFC) == 0x64 || 
              (*func & 0xF8) == 0xD8 ||
-             (*func & 0x7E) == 0x62)
+             (*func & 0x7E) == 0x62
+#ifdef _X64_
+             || (*func & 0xF0) == 0x40
+#endif
+             )
         { 
             if(*func == 0x66) 
             { 
@@ -233,13 +238,34 @@ size_t GetInstructionBoundary(void* function, int count)
  */
 void WriteJump(void* dst, void* address)
 {
-    
     unsigned char* jump = static_cast<unsigned char*>(dst);
+    ptrdiff_t offset = (unsigned char *)(address) - jump;
 
-    // Setup a jump instruction.
-    jump[0] = 0xE9;
-    *((unsigned long*)(&jump[1])) = (unsigned long)(address) - (unsigned long)(dst) - 5;
+#ifdef _X64_
+      if(static_cast<ptrdiff_t>(static_cast<long>(offset)) != offset)
+      {
+          // push address 
+          jump[0] = 0x68;
+          *((long*)(&jump[1])) = (long)(address);
+    
+          // mov [rsp+4], (address >> 32)
+          // C7 /0 id
+          jump[5] = 0xC7;
+          jump[6] = 0x44;
+          jump[7] = 0x24;
+          jump[8] = 0x04;
+          *((long*)(&jump[9])) = (long)(((INT_PTR)address) >> 32);
 
+          // ret
+          jump[13] = 0xC3;
+      }
+      else
+#endif
+      {
+          // Setup a jump instruction.
+          jump[0] = 0xE9;
+          *((long*)(&jump[1])) = static_cast<long>(offset - 5);
+      }
 }
 
 void* ReadJump(void* src)
@@ -264,12 +290,12 @@ void* ReadJump(void* src)
  * the function specified. This is useful when a piece of code is moved in
  * memory.
  */
-void AdjustRelativeJumps(void* function, int length, int offset)
+void AdjustRelativeJumps(void* function, size_t length, ptrdiff_t offset)
 {
 
     unsigned char* p = reinterpret_cast<unsigned char*>(function);
 
-    int i = 0;
+    size_t i = 0;
 
     while (i < length)
     {
@@ -284,13 +310,19 @@ void AdjustRelativeJumps(void* function, int length, int offset)
             // Relative jump/call instruction.
             if (operandSize == 4)
             {
-                unsigned long address = *((unsigned long*)(p + i + n - operandSize));
-                *((unsigned long*)(p + i + n - operandSize)) = address + offset;
+                long address = *((long*)(p + i + n - operandSize));
+                ptrdiff_t newAddress = address + offset;
+#ifdef _X64_
+                assert(static_cast<ptrdiff_t>(static_cast<long>(newAddress)) == newAddress);
+#endif
+                *((long*)(p + i + n - operandSize)) = static_cast<long>(newAddress);
             }
             else if (operandSize == 2)
             {
-                unsigned short address = *((unsigned short*)(p + i + n - operandSize));
-                *((unsigned short*)(p + i + n - operandSize)) = address + offset;
+                short address = *((unsigned short*)(p + i + n - operandSize));
+                ptrdiff_t newAddress = address + offset;
+                assert(static_cast<ptrdiff_t>(static_cast<short>(newAddress)) == newAddress);
+                *((short*)(p + i + n - operandSize)) = static_cast<short>(newAddress);
             }
             else
             {
@@ -338,8 +370,12 @@ void* HookFunction(void* function, void* hook)
     // Missing from windows.h
     #define HEAP_CREATE_ENABLE_EXECUTE 0x00040000
 
-    // Jump instruction is 5 bytes.
+    // Jump instruction is 5 bytes for 32 bits, 14 bytes for 64 bits.
+#ifdef _X86_
     const int jumpSize = 5;
+#else
+    const int jumpSize = 14;
+#endif
 
     // Compute the instruction boundary so we don't override half an instruction.
     size_t boundary = GetInstructionBoundary(function, jumpSize);
@@ -409,14 +445,17 @@ void* HookFunction(void* function, void* hook, unsigned long upValue)
     // Missing from windows.h
     #define HEAP_CREATE_ENABLE_EXECUTE 0x00040000
 
-    // Jump instruction is 5 bytes.
-    const int jumpSize    = 5;
-    
-    // Misc data we're going to store (the original function) fits in 4 bytes.
-    const int storageSize = 5;
+    // Jump instruction is 5 bytes for 32 bits, 14 bytes for 64 bits.
+#ifdef _X86_
+    const int jumpSize = 5;
+    const int setupSize = 21;
+#else
+    const int jumpSize = 14;
+    const int setupSize = 38;
+#endif
 
     // Compute the instruction boundary so we don't override half an instruction.
-    int boundary = GetInstructionBoundary(function, jumpSize);
+    size_t boundary = GetInstructionBoundary(function, jumpSize);
 
     if (g_trampolineHeap == NULL)
     {
@@ -435,7 +474,7 @@ void* HookFunction(void* function, void* hook, unsigned long upValue)
     // Construct a new function that will invoke our hook with the up value.
     // We can't write this directly into the original function, since the
     // original function may only be 5 bytes long (aka just a jump).
-    unsigned char* setup = static_cast<unsigned char*>(HeapAlloc(g_trampolineHeap, 0, 21));
+    unsigned char* setup = static_cast<unsigned char*>(HeapAlloc(g_trampolineHeap, 0, setupSize));
 
     if (trampoline == NULL || setup == NULL)
     {
@@ -455,10 +494,11 @@ void* HookFunction(void* function, void* hook, unsigned long upValue)
 
     unsigned char* p = static_cast<unsigned char*>(setup);
 
-    // Store the address to the trampoline code as the first 4 bytes
+    // Store the address to the trampoline code as the first 4/8 bytes
     // so that we can check this when attempting to rehook.
-    *((unsigned long*)(p + 0)) = (unsigned long)trampoline;
+    *((unsigned char**)(p + 0)) = trampoline;
     
+#ifdef _X86_
     // push        eax  
     p[4] = 0x50;
     
@@ -479,6 +519,45 @@ void* HookFunction(void* function, void* hook, unsigned long upValue)
 
     // Write the jmp instruction to the hook function.
     WriteJump(p + 17, hook);
+#else
+    // pop rax
+    p[8] = 0x58;
+
+    // push r9
+    p[9] = 0x41;
+    p[10] = 0x51;
+
+    // push rax
+    p[11] = 0x50;
+
+    // mov rax, hook
+    p[12] = 0x48;
+    p[13] = 0xB8;
+    *(void **)(p + 14) = hook;
+
+    // mov r9, r8
+    p[22] = 0x4D;
+    p[23] = 0x8B;
+    p[24] = 0xC8;
+
+    // mov r8, rdx
+    p[25] = 0x4C;
+    p[26] = 0x8B;
+    p[27] = 0xC2;
+
+    // mov rdx, rcx
+    p[28] = 0x48;
+    p[29] = 0x8B;
+    p[30] = 0xD1;
+
+    // mov ecx, upValue
+    p[31] = 0xB9;
+    *(unsigned long *)(p + 32) = upValue;
+
+    // jmp rax
+    p[36] = 0xFF;
+    p[37] = 0xE0;
+#endif
 
     DWORD protection;
 

@@ -818,8 +818,8 @@ bool DebugFrontend::ProcessInitialization(const char* symbolsDirectory)
         return false;
     }
 
-    unsigned int function;
-    m_eventChannel.ReadUInt32(function);
+    void* function;
+    m_eventChannel.ReadPtr(function);
 
     // Call the initializtion function.
 

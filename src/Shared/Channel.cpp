@@ -173,6 +173,12 @@ bool Channel::WriteUInt32(unsigned int value)
     return Write(&temp, 4);
 }
 
+bool Channel::WritePtr(void* value)
+{
+    INT_PTR temp = reinterpret_cast<INT_PTR>(value);
+    return Write(&temp, sizeof(INT_PTR));
+}
+
 bool Channel::WriteString(const char* value)
 {
     unsigned int length = static_cast<int>(strlen(value));
@@ -214,6 +220,17 @@ bool Channel::ReadUInt32(unsigned int& value)
         return false;
     }
     value = temp;
+    return true;
+}
+
+bool Channel::ReadPtr(void*& value)
+{
+    INT_PTR temp;
+    if(!Read(&temp, sizeof(INT_PTR)))
+    {
+        return false;
+    }
+    value = reinterpret_cast<void *>(temp);
     return true;
 }
 

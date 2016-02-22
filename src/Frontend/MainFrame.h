@@ -414,7 +414,7 @@ public:
      */
     void OnHelpContents(wxCommandEvent& event);
 
-#ifdef _X86
+#ifdef _X86_
     /**
      * Called when the user selects Help/Check For Update from the menu.
      */

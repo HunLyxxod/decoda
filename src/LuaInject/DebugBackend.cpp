@@ -293,7 +293,7 @@ bool DebugBackend::Initialize(HINSTANCE hInstance)
     // Give the front end the address of our Initialize function so that
     // it can call it once we're done loading.
     m_eventChannel.WriteUInt32(EventId_Initialize);
-    m_eventChannel.WriteUInt32(reinterpret_cast<unsigned int>(FinishInitialize));
+    m_eventChannel.WritePtr(FinishInitialize);
     m_eventChannel.Flush();
 
     return true;
@@ -3162,7 +3162,7 @@ unsigned int DebugBackend::GetCStack(HANDLE hThread, StackEntry stack[], unsigne
         }
         else
         {
-            sprintf(stack[i].name, "0x%x", stackFrame[i].AddrPC.Offset);
+            sprintf(stack[i].name, "0x%llx", stackFrame[i].AddrPC.Offset);
         }
 
     }

@@ -72,6 +72,11 @@ public:
     bool WriteUInt32(unsigned int value);
 
     /**
+     * Writes a pointer to the channel and returns immediately.
+     */
+    bool WritePtr(void* value);
+
+    /**
      * Writes a string to the channel and returns immediately.
      */
     bool WriteString(const char* value);
@@ -91,6 +96,12 @@ public:
      * until the data is available.
      */
     bool ReadUInt32(unsigned int& value);
+
+    /**
+     * Reads a pointer from the channel. This operation blocks
+     * until the data is available.
+     */
+    bool ReadPtr(void*& value);
 
     /**
      * Reads a string from the channel. This operation blocks until the
